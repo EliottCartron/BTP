@@ -12,16 +12,20 @@ public class Utilisateur {
 	private Long id;
 	private String identifiant;
 	private String motDePasse;
-	@OneToOne
+	
+	@OneToOne (mappedBy = "utilisateur")
 	private Societe societe;
 
 	// Constructeur
 
-	public Utilisateur(String identifiant, String motDePasse, Societe societe) {
+	public Utilisateur() {
+		super();
+	}
+	
+	public Utilisateur(String identifiant, String motDePasse) {
 		super();
 		this.identifiant = identifiant;
 		this.motDePasse = motDePasse;
-		this.societe = societe;
 	}
 
 	// Getters and setters

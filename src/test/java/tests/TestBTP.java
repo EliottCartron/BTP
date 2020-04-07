@@ -1,9 +1,45 @@
 package tests;
 
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+
+import btp.Application;
+import btp.model.AppelOffre;
+import btp.model.MaitreOeuvre;
+import btp.model.Utilisateur;
+import btp.persistence.IAppelOffreDao;
+import btp.persistence.IMaitreOeuvreDao;
+import btp.persistence.IMaitreOuvrageDao;
+import btp.persistence.IOffreDao;
+import btp.persistence.IUtilisateurDao;
+
 public class TestBTP {
 
-	public static void main(String[] args) {
-		// TODO Auto-generated method stub
+	public static void main(String[] args) throws ParseException {
+		
+		SimpleDateFormat sdf = new SimpleDateFormat("dd/mm/yyyy");
+
+		IAppelOffreDao appelOffreDao = Application.getInstance().getAppelOffreDao();
+		IMaitreOeuvreDao maitreOeuvreDao = Application.getInstance().getMaitreOeuvreDao();
+		IMaitreOuvrageDao maitreOuvrageDao = Application.getInstance().getMaitreOuvrageDao();
+		IOffreDao offreDao = Application.getInstance().getOffreDao();
+		IUtilisateurDao utilisateurDao = Application.getInstance().getUtilisateurDao();
+
+
+		AppelOffre appelOffre1 = new AppelOffre("maison", 33000F, sdf.parse("07/04/2021"), sdf.parse("07/04/2022"), sdf.parse("15/12/2021"), false, null);
+		AppelOffre appelOffre2 = new AppelOffre("maison", 33000F, sdf.parse("07/04/2021"), sdf.parse("07/04/2022"), sdf.parse("15/12/2021"), true, 45000F);
+		appelOffre1 = appelOffreDao.save(appelOffre1);
+		appelOffre2 = appelOffreDao.save(appelOffre2);
+		
+		Utilisateur utilisateur = new Utilisateur("aaa", "123456789");
+		utilisateur = utilisateurDao.save(utilisateur);
+		
+		MaitreOeuvre bob = new MaitreOeuvre("Bob", "14521256431", "0649753159", "boblebricoleur@gmail.fr", "354f435f41f");
+		bob = maitreOeuvreDao.save(bob);
+		
+		
+	
+		
 	}
 
 }

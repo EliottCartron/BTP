@@ -10,6 +10,8 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
+import javax.persistence.Temporal;
+import javax.persistence.TemporalType;
 
 @Entity
 public class AppelOffre {
@@ -18,14 +20,17 @@ public class AppelOffre {
 	private Long id;
 	private String objectif;
 	private Float budget;
+	@Temporal(TemporalType.DATE)
 	private Date dtDebut;
+	@Temporal(TemporalType.DATE)
 	private Date dtFin;
+	@Temporal(TemporalType.DATE)
 	private Date dtLimite;
 	private Boolean bpu;
 	private Float prixBpu;
 
-	@Embedded
-	private Adresse adresse;
+//	@Embedded
+//	private Adresse adresse;
 
 	@ManyToOne
 	private MaitreOuvrage maitreOuvrage;
@@ -34,6 +39,10 @@ public class AppelOffre {
 	List<Offre> offres = new ArrayList<Offre>();
 
 	// Constructeur
+
+	public AppelOffre() {
+		super();
+	}
 
 	public AppelOffre(String objectif, Float budget, Date dtDebut, Date dtFin, Date dtLimite, Boolean bpu,
 			Float prixBpu) {
@@ -113,13 +122,13 @@ public class AppelOffre {
 		this.prixBpu = prixBpu;
 	}
 
-	public Adresse getAdresse() {
-		return adresse;
-	}
-
-	public void setAdresse(Adresse adresse) {
-		this.adresse = adresse;
-	}
+//	public Adresse getAdresse() {
+//		return adresse;
+//	}
+//
+//	public void setAdresse(Adresse adresse) {
+//		this.adresse = adresse;
+//	}
 
 	public MaitreOuvrage getMaitreOuvrage() {
 		return maitreOuvrage;
@@ -140,8 +149,8 @@ public class AppelOffre {
 	@Override
 	public String toString() {
 		return "AppelOffre [id=" + id + ", objectif=" + objectif + ", budget=" + budget + ", dtDebut=" + dtDebut
-				+ ", dtFin=" + dtFin + ", dtLimite=" + dtLimite + ", bpu=" + bpu + ", prixBpu=" + prixBpu + ", adresse="
-				+ adresse + ", maitreOuvrage=" + maitreOuvrage + ", offres=" + offres + "]";
+				+ ", dtFin=" + dtFin + ", dtLimite=" + dtLimite + ", bpu=" + bpu + ", prixBpu=" + prixBpu
+				+ ", maitreOuvrage=" + maitreOuvrage + ", offres=" + offres + "]";
 	}
 
 }

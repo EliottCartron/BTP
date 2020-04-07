@@ -1,39 +1,46 @@
 package btp.model;
 
+import javax.persistence.DiscriminatorColumn;
+import javax.persistence.DiscriminatorType;
 import javax.persistence.Embedded;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.Inheritance;
+import javax.persistence.InheritanceType;
 import javax.persistence.JoinColumn;
 import javax.persistence.OneToOne;
 
 @Entity
+@Inheritance(strategy = InheritanceType.SINGLE_TABLE)
+@DiscriminatorColumn(name = "type", discriminatorType = DiscriminatorType.STRING, length = 15)
 public class Societe {
 	@Id
 	@GeneratedValue
 	private Long id;
 	private String nom;
-	private int siret;
-	private int telephone;
+	private String siret;
+	private String telephone;
 	private String mail;
-	private String type;
 	private String numeroDeTva;
 	
-	@OneToOne
+	@OneToOne 
 	private Utilisateur utilisateur;
 	
-	@Embedded
-	private Adresse adresse;
+//	@Embedded
+//	private Adresse adresse;
 
 // Constructeur
+	public Societe() {
+		super();
+	}
 
-	public Societe(String nom, int siret, int telephone, String mail, String type, String numeroDeTva) {
+	public Societe(String nom, String siret, String telephone, String mail, String numeroDeTva) {
 		super();
 		this.nom = nom;
 		this.siret = siret;
 		this.telephone = telephone;
 		this.mail = mail;
-		this.type = type;
 		this.numeroDeTva = numeroDeTva;
 	}
 
@@ -55,19 +62,19 @@ public class Societe {
 		this.nom = nom;
 	}
 
-	public int getSiret() {
+	public String getSiret() {
 		return siret;
 	}
 
-	public void setSiret(int siret) {
+	public void setSiret(String siret) {
 		this.siret = siret;
 	}
 
-	public int getTelephone() {
+	public String getTelephone() {
 		return telephone;
 	}
 
-	public void setTelephone(int telephone) {
+	public void setTelephone(String telephone) {
 		this.telephone = telephone;
 	}
 
@@ -77,14 +84,6 @@ public class Societe {
 
 	public void setMail(String mail) {
 		this.mail = mail;
-	}
-
-	public String getType() {
-		return type;
-	}
-
-	public void setType(String type) {
-		this.type = type;
 	}
 
 	public String getNumeroDeTva() {
@@ -103,20 +102,19 @@ public class Societe {
 		this.utilisateur = utilisateur;
 	}
 
-	public Adresse getAdresse() {
-		return adresse;
-	}
-
-	public void setAdresse(Adresse adresse) {
-		this.adresse = adresse;
-	}
+//	public Adresse getAdresse() {
+//		return adresse;
+//	}
+//
+//	public void setAdresse(Adresse adresse) {
+//		this.adresse = adresse;
+//	}
 
 	// toString
 
 	@Override
 	public String toString() {
-		return "Societe [nom=" + nom + ", siret=" + siret + ", telephone=" + telephone + ", mail=" + mail + ", type="
-				+ type + ", numeroDeTva=" + numeroDeTva + ", utilisateur=" + utilisateur + ", adresse=" + adresse + "]";
+		return "Societe [nom=" + nom + ", siret=" + siret + ", telephone=" + telephone + ", mail=" + mail + ", numeroDeTva=" + numeroDeTva + ", utilisateur=" + utilisateur +"]";
 	}
 
 }

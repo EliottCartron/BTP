@@ -7,14 +7,14 @@ import javax.persistence.EntityTransaction;
 import javax.persistence.TypedQuery;
 
 import btp.Application;
-import btp.model.Utilisateur;
-import btp.persistence.IUtilisateurDao;
+import btp.model.MaitreOeuvre;
+import btp.persistence.IMaitreOeuvreDao;
 
-public class UtilisateurDaoJpa implements IUtilisateurDao {
+public class MaitreOeuvreDaoJpa implements IMaitreOeuvreDao{
 
 	@Override
-	public List<Utilisateur> findAll() {
-		List<Utilisateur> utilisateurs = null;
+	public List<MaitreOeuvre> findAll() {
+		List<MaitreOeuvre> maitreOeuvres = null;
 
 		EntityManager em = null;
 		EntityTransaction tx = null;
@@ -24,9 +24,9 @@ public class UtilisateurDaoJpa implements IUtilisateurDao {
 			tx = em.getTransaction();
 			tx.begin();
 
-			TypedQuery<Utilisateur> query = em.createQuery("from Utilisateur", Utilisateur.class);
+			TypedQuery<MaitreOeuvre> query = em.createQuery("from MaitreOeuvre", MaitreOeuvre.class);
 
-			utilisateurs = query.getResultList();
+			maitreOeuvres = query.getResultList();
 
 			tx.commit();
 		} catch (Exception e) {
@@ -40,12 +40,12 @@ public class UtilisateurDaoJpa implements IUtilisateurDao {
 			}
 		}
 
-		return utilisateurs;
+		return maitreOeuvres;
 	}
 
 	@Override
-	public Utilisateur find(Long id) {
-		Utilisateur utilisateur = null;
+	public MaitreOeuvre find(Long id) {
+		MaitreOeuvre maitreOeuvre = null;
 
 		EntityManager em = null;
 		EntityTransaction tx = null;
@@ -55,7 +55,7 @@ public class UtilisateurDaoJpa implements IUtilisateurDao {
 			tx = em.getTransaction();
 			tx.begin();
 
-			utilisateur = em.find(Utilisateur.class, id);
+			maitreOeuvre = em.find(MaitreOeuvre.class, id);
 
 			tx.commit();
 		} catch (Exception e) {
@@ -69,12 +69,12 @@ public class UtilisateurDaoJpa implements IUtilisateurDao {
 			}
 		}
 
-		return utilisateur;
+		return maitreOeuvre;
 	}
 
 	@Override
-	public Utilisateur save(Utilisateur obj) {
-		Utilisateur utilisateur = null;
+	public MaitreOeuvre save(MaitreOeuvre obj) {
+		MaitreOeuvre maitreOeuvre = null;
 
 		EntityManager em = null;
 		EntityTransaction tx = null;
@@ -84,7 +84,7 @@ public class UtilisateurDaoJpa implements IUtilisateurDao {
 			tx = em.getTransaction();
 			tx.begin();
 
-			utilisateur = em.merge(obj);
+			maitreOeuvre = em.merge(obj);
 
 			tx.commit();
 		} catch (Exception e) {
@@ -98,11 +98,11 @@ public class UtilisateurDaoJpa implements IUtilisateurDao {
 			}
 		}
 
-		return utilisateur;
+		return maitreOeuvre;
 	}
 
 	@Override
-	public void delete(Utilisateur obj) {
+	public void delete(MaitreOeuvre obj) {
 		EntityManager em = null;
 		EntityTransaction tx = null;
 

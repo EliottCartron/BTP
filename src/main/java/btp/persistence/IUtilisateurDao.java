@@ -1,5 +1,7 @@
 package btp.persistence;
 
-public interface IUtilisateurDao {
+import btp.model.Utilisateur;
+
+public interface IUtilisateurDao extends IDao<Utilisateur, Long>{
 
 }

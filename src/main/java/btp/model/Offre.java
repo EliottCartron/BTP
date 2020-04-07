@@ -1,15 +1,15 @@
 package btp.model;
 
-import java.util.ArrayList;
 import java.util.Date;
-import java.util.List;
 
 import javax.persistence.Entity;
+import javax.persistence.EnumType;
+import javax.persistence.Enumerated;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.ManyToOne;
-import javax.persistence.OneToMany;
-import javax.persistence.OneToOne;
+import javax.persistence.Temporal;
+import javax.persistence.TemporalType;
 
 @Entity
 public class Offre {
@@ -18,25 +18,29 @@ public class Offre {
 	private Long id;
 	private Float prix;
 	private int numeroDevis;
+	@Temporal(TemporalType.DATE)
 	private Date dtDebut;
+	@Temporal(TemporalType.DATE)
 	private Date dtFin;
-	private Etat etat;
 	
+	@Enumerated(EnumType.STRING)
+	private Etat etat;
+
 	@ManyToOne
 	private MaitreOuvrage maitreOuvrage;
-	
+
 	@ManyToOne
 	private MaitreOeuvre maitreOeuvre;
-	
+
 	@ManyToOne
 	private AppelOffre appelOffre;
-	
-	@OneToMany(mappedBy = "offre")
-	private List<Prestation> prestations = new ArrayList<Prestation>();
-	
-	@OneToOne (mappedBy = "offre")
-	private Projet projet;
-	
+
+//
+//	@OneToMany(mappedBy = "offre")
+//	private List<Prestation> prestations = new ArrayList<Prestation>();
+//	
+//	@OneToOne (mappedBy = "offre")
+//	private Projet projet;
 
 	// Constructeurs
 
@@ -97,10 +101,26 @@ public class Offre {
 	public void setEtat(Etat etat) {
 		this.etat = etat;
 	}
+//	public List<Prestation> getPrestations() {
+//		return prestations;
+//	}
+//
+//	public void setPrestations(List<Prestation> prestations) {
+//		this.prestations = prestations;
+//	}
+//
+//	public Projet getProjet() {
+//		return projet;
+//	}
+//
+//	public void setProjet(Projet projet) {
+//		this.projet = projet;
+//	}
 
 	@Override
 	public String toString() {
-		return "Offre [prix=" + prix + ", numeroDevis=" + numeroDevis + ", dtDebut=" + dtDebut + ", dtFin=" + dtFin + ", etat=" + etat + "]";
+		return "Offre [prix=" + prix + ", numeroDevis=" + numeroDevis + ", dtDebut=" + dtDebut + ", dtFin=" + dtFin
+				+ ", etat=" + etat + "]";
 	}
 
 }
