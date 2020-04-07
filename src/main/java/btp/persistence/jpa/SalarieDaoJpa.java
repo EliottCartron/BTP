@@ -7,14 +7,13 @@ import javax.persistence.EntityTransaction;
 import javax.persistence.TypedQuery;
 
 import btp.Application;
-import btp.model.Utilisateur;
-import btp.persistence.IUtilisateurDao;
+import btp.model.Salarie;
 
-public class UtilisateurDaoJpa implements IUtilisateurDao {
+public class SalarieDaoJpa implements btp.persistence.ISalarieDao {
 
 	@Override
-	public List<Utilisateur> findAll() {
-		List<Utilisateur> utilisateurs = null;
+	public List<Salarie> findAll() {
+		List<Salarie> salaries = null;
 
 		EntityManager em = null;
 		EntityTransaction tx = null;
@@ -24,9 +23,9 @@ public class UtilisateurDaoJpa implements IUtilisateurDao {
 			tx = em.getTransaction();
 			tx.begin();
 
-			TypedQuery<Utilisateur> query = em.createQuery("from Utilisateur", Utilisateur.class);
+			TypedQuery<Salarie> query = em.createQuery("from Salarie", Salarie.class);
 
-			utilisateurs = query.getResultList();
+			salaries = query.getResultList();
 
 			tx.commit();
 		} catch (Exception e) {
@@ -40,12 +39,12 @@ public class UtilisateurDaoJpa implements IUtilisateurDao {
 			}
 		}
 
-		return utilisateurs;
+		return salaries;
 	}
 
 	@Override
-	public Utilisateur find(Long id) {
-		Utilisateur utilisateur = null;
+	public Salarie find(Long id) {
+		Salarie salarie = null;
 
 		EntityManager em = null;
 		EntityTransaction tx = null;
@@ -55,7 +54,7 @@ public class UtilisateurDaoJpa implements IUtilisateurDao {
 			tx = em.getTransaction();
 			tx.begin();
 
-			utilisateur = em.find(Utilisateur.class, id);
+			salarie = em.find(Salarie.class, id);
 
 			tx.commit();
 		} catch (Exception e) {
@@ -69,12 +68,12 @@ public class UtilisateurDaoJpa implements IUtilisateurDao {
 			}
 		}
 
-		return utilisateur;
+		return salarie;
 	}
 
 	@Override
-	public Utilisateur save(Utilisateur obj) {
-		Utilisateur utilisateur = null;
+	public Salarie save(Salarie obj) {
+		Salarie salarie = null;
 
 		EntityManager em = null;
 		EntityTransaction tx = null;
@@ -84,7 +83,7 @@ public class UtilisateurDaoJpa implements IUtilisateurDao {
 			tx = em.getTransaction();
 			tx.begin();
 
-			utilisateur = em.merge(obj);
+			salarie = em.merge(obj);
 
 			tx.commit();
 		} catch (Exception e) {
@@ -98,11 +97,11 @@ public class UtilisateurDaoJpa implements IUtilisateurDao {
 			}
 		}
 
-		return utilisateur;
+		return salarie;
 	}
 
 	@Override
-	public void delete(Utilisateur obj) {
+	public void delete(Salarie obj) {
 		EntityManager em = null;
 		EntityTransaction tx = null;
 
@@ -125,5 +124,6 @@ public class UtilisateurDaoJpa implements IUtilisateurDao {
 			}
 		}
 	}
-
 }
+
+
