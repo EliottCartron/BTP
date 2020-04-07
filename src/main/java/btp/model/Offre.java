@@ -7,6 +7,7 @@ import javax.persistence.EnumType;
 import javax.persistence.Enumerated;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
@@ -35,14 +36,20 @@ public class Offre {
 	@ManyToOne
 	private AppelOffre appelOffre;
 
-//
-//	@OneToMany(mappedBy = "offre")
-//	private List<Prestation> prestations = new ArrayList<Prestation>();
-//	
-//	@OneToOne (mappedBy = "offre")
-//	private Projet projet;
+
+	@OneToMany(mappedBy = "offre")
+	private List<Prestation> prestations = new ArrayList<Prestation>();
+	
+	@OneToOne (mappedBy = "offre")
+	private Projet projet;
 
 	// Constructeurs
+	
+	public Offre() {
+		super();
+	}
+
+	
 
 	public Offre(Float prix, int numeroDevis, Date dtDebut, Date dtFin) {
 		super();
@@ -101,22 +108,46 @@ public class Offre {
 	public void setEtat(Etat etat) {
 		this.etat = etat;
 	}
-//	public List<Prestation> getPrestations() {
-//		return prestations;
-//	}
-//
-//	public void setPrestations(List<Prestation> prestations) {
-//		this.prestations = prestations;
-//	}
-//
-//	public Projet getProjet() {
-//		return projet;
-//	}
-//
-//	public void setProjet(Projet projet) {
-//		this.projet = projet;
-//	}
+	public List<Prestation> getPrestations() {
+		return prestations;
+	}
 
+	public void setPrestations(List<Prestation> prestations) {
+		this.prestations = prestations;
+	}
+
+	public Projet getProjet() {
+		return projet;
+	}
+
+	public void setProjet(Projet projet) {
+		this.projet = projet;
+	}
+
+	public MaitreOuvrage getMaitreOuvrage() {
+		return maitreOuvrage;
+	}
+
+	public void setMaitreOuvrage(MaitreOuvrage maitreOuvrage) {
+		this.maitreOuvrage = maitreOuvrage;
+	}
+
+	public MaitreOeuvre getMaitreOeuvre() {
+		return maitreOeuvre;
+	}
+
+	public void setMaitreOeuvre(MaitreOeuvre maitreOeuvre) {
+		this.maitreOeuvre = maitreOeuvre;
+	}
+
+	public AppelOffre getAppelOffre() {
+		return appelOffre;
+	}
+
+	public void setAppelOffre(AppelOffre appelOffre) {
+		this.appelOffre = appelOffre;
+	}
+	
 	@Override
 	public String toString() {
 		return "Offre [prix=" + prix + ", numeroDevis=" + numeroDevis + ", dtDebut=" + dtDebut + ", dtFin=" + dtFin

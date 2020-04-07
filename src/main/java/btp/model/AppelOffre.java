@@ -29,8 +29,8 @@ public class AppelOffre {
 	private Boolean bpu;
 	private Float prixBpu;
 
-//	@Embedded
-//	private Adresse adresse;
+	@Embedded
+	private Adresse adresse;
 
 	@ManyToOne
 	private MaitreOuvrage maitreOuvrage;
@@ -122,13 +122,13 @@ public class AppelOffre {
 		this.prixBpu = prixBpu;
 	}
 
-//	public Adresse getAdresse() {
-//		return adresse;
-//	}
-//
-//	public void setAdresse(Adresse adresse) {
-//		this.adresse = adresse;
-//	}
+	public Adresse getAdresse() {
+		return adresse;
+	}
+
+	public void setAdresse(Adresse adresse) {
+		this.adresse = adresse;
+	}
 
 	public MaitreOuvrage getMaitreOuvrage() {
 		return maitreOuvrage;

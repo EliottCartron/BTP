@@ -20,7 +20,10 @@ import btp.persistence.IPrestataireDao;
 import btp.persistence.ISalarieDao;
 import btp.Application;
 import btp.model.AppelOffre;
+import btp.model.Etat;
 import btp.model.MaitreOeuvre;
+import btp.model.MaitreOuvrage;
+import btp.model.Offre;
 import btp.model.Utilisateur;
 import btp.persistence.IAppelOffreDao;
 import btp.persistence.IMaitreOeuvreDao;
@@ -59,14 +62,42 @@ public class TestBTP {
 		appelOffre1 = appelOffreDao.save(appelOffre1);
 		appelOffre2 = appelOffreDao.save(appelOffre2);
 		
-		Utilisateur utilisateur = new Utilisateur("aaa", "123456789");
-		utilisateur = utilisateurDao.save(utilisateur);
+		Utilisateur utilisateurbob = new Utilisateur("bob", "123456789");
+		utilisateurbob = utilisateurDao.save(utilisateurbob);
+		
+		Utilisateur utilisateurtoto = new Utilisateur("toto", "azertyuiop");
+		utilisateurtoto = utilisateurDao.save(utilisateurtoto);
 		
 		MaitreOeuvre bob = new MaitreOeuvre("Bob", "14521256431", "0649753159", "boblebricoleur@gmail.fr", "354f435f41f");
 		bob = maitreOeuvreDao.save(bob);
 		
-		
+		MaitreOuvrage toto = new MaitreOuvrage("Toto", "4653413", "0618753492","totoMO@gmail.com","f6534r31e");
+		toto = maitreOuvrageDao.save(toto);
 	
+		bob.setUtilisateur(utilisateurbob);
+		toto.setUtilisateur(utilisateurtoto);
+		
+		bob = maitreOeuvreDao.save(bob);
+		toto = maitreOuvrageDao.save(toto);
+		
+		appelOffre1.setMaitreOuvrage(toto);
+		appelOffre1 = appelOffreDao.save(appelOffre1);
+		
+		Offre offre1 = new Offre(60000F, 45, sdf.parse("07/04/2021"), sdf.parse("07/04/2023"));
+		offre1 = offreDao.save(offre1);
+		
+		offre1.setEtat(Etat.clot);
+	
+		offre1.setMaitreOeuvre(bob);
+		offre1.setMaitreOuvrage(toto);
+		offre1.setAppelOffre(appelOffre1);
+		
+		offre1 = offreDao.save(offre1);
+		
+		
+		
+		
+		
 		
 		IActionDao testAction = Application.getInstance().getActionDao();
 		IFactureDao testFacture = Application.getInstance().getFactureDao();

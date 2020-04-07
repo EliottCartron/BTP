@@ -18,8 +18,8 @@ public class MaitreOuvrage extends Societe {
 	@OneToMany(mappedBy = "maitreOuvrage")
 	private List<Offre> offres = new ArrayList<Offre>();
 
-//	@OneToMany(mappedBy = "maitreOuvrage")
-//	private List<Facture> factures = new ArrayList<Facture>();
+	@OneToMany(mappedBy = "maitreOuvrage")
+	private List<Facture> factures = new ArrayList<Facture>();
 
 	// Constructeur
 	
@@ -50,12 +50,12 @@ public class MaitreOuvrage extends Societe {
 		this.offres = offres;
 	}
 
-//	public List<Facture> getFactures() {
-//		return factures;
-//	}
-//
-//	public void setFactures(List<Facture> factures) {
-//		this.factures = factures;
-//	}
+	public List<Facture> getFactures() {
+		return factures;
+	}
+
+	public void setFactures(List<Facture> factures) {
+		this.factures = factures;
+	}
 
 }

@@ -27,8 +27,8 @@ public class Societe {
 	@OneToOne 
 	private Utilisateur utilisateur;
 	
-//	@Embedded
-//	private Adresse adresse;
+	@Embedded
+	private Adresse adresse;
 
 // Constructeur
 	public Societe() {
@@ -102,13 +102,13 @@ public class Societe {
 		this.utilisateur = utilisateur;
 	}
 
-//	public Adresse getAdresse() {
-//		return adresse;
-//	}
-//
-//	public void setAdresse(Adresse adresse) {
-//		this.adresse = adresse;
-//	}
+	public Adresse getAdresse() {
+		return adresse;
+	}
+
+	public void setAdresse(Adresse adresse) {
+		this.adresse = adresse;
+	}
 
 	// toString
 
