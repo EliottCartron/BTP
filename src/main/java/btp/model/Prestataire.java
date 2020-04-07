@@ -11,15 +11,8 @@ import javax.persistence.Id;
 import javax.persistence.OneToMany;
 
 @Entity
- @DiscriminatorValue("Prestataire")
-public class Prestataire { // extends Societe
-	@Id
-	@GeneratedValue
-	private Long id;
-
-	@Column(name = "nom")
-	private String nom;
-
+@DiscriminatorValue("Prestataire")
+public class Prestataire extends Societe{ 
 	@OneToMany(mappedBy = "prestataire")
 	private List<Action> actions = new ArrayList<Action>();
 
@@ -40,27 +33,6 @@ public class Prestataire { // extends Societe
 
 	public Prestataire() {
 		super();
-	}
-
-	public Prestataire(String nom) {
-		super();
-		this.nom = nom;
-	}
-
-	public String getNom() {
-		return nom;
-	}
-
-	public void setNom(String nom) {
-		this.nom = nom;
-	}
-
-	public Long getId() {
-		return id;
-	}
-
-	public void setId(Long id) {
-		this.id = id;
 	}
 
 	public List<Action> getActions() {

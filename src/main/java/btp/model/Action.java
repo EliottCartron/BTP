@@ -42,8 +42,8 @@ public class Action {
 	private Prestataire prestataire;
 
 	@ManyToOne
-	@JoinColumn(name = "prestataire_id")
-	private Projet projets;
+	@JoinColumn(name = "projet_id")
+	private Projet projet;
 
 	
 	public Action() {
@@ -136,12 +136,12 @@ public class Action {
 		this.prestataire = prestataire;
 	}
 
-	public Projet getProjets() {
-		return projets;
+	public Projet getProjet() {
+		return projet;
 	}
 
-	public void setProjets(Projet projets) {
-		this.projets = projets;
+	public void setProjet(Projet projet) {
+		this.projet = projet;
 	}
 
 	@Override

@@ -27,6 +27,7 @@ import btp.persistence.IMaitreOeuvreDao;
 import btp.persistence.IMaitreOuvrageDao;
 import btp.persistence.IOffreDao;
 import btp.persistence.IPrestataireDao;
+import btp.persistence.ISalarieDao;
 import btp.persistence.IUtilisateurDao;
 
 public class TestBTP {
@@ -90,19 +91,14 @@ public class TestBTP {
 		offre1.setMaitreOuvrage(toto);
 		offre1.setAppelOffre(appelOffre1);
 		
-		offre1 = offreDao.save(offre1);
-		
-		
-		
-		
-		
+		offre1 = offreDao.save(offre1);		
 		
 		IActionDao testAction = Application.getInstance().getActionDao();
 		IFactureDao testFacture = Application.getInstance().getFactureDao();
 		IPrestataireDao testPrestataire = Application.getInstance().getPrestataireDao();
-//		ISalarieDao testSalarie = Application.getInstance().getSalarieDao();
+		ISalarieDao testSalarie = Application.getInstance().getSalarieDao();
 		
-		Prestataire colas = new Prestataire("Colas");
+		Prestataire colas = new Prestataire();
 		colas = Application.getInstance().getPrestataireDao().save(colas);
 		
 		Action isolation = new Action("Isolation");

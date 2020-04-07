@@ -48,11 +48,11 @@ public class Prestation {
 	@JoinColumn(name = "prestataire_id")
 	private Prestataire prestataire;
 	@ManyToMany
-	@JoinTable(name =" ",
-	joinColumns = @JoinColumn (name = "salarie_id ", referencedColumnName = "id"),
-	inverseJoinColumns = @JoinColumn (name = "prestation_id ", referencedColumnName = "id"))
-	private Salarie salarie;
-	@OneToOne(mappedBy = "facture")
+	@JoinTable(name ="salerie_presta",
+	joinColumns = @JoinColumn (name = "prestation_id ", referencedColumnName = "id"),
+	inverseJoinColumns = @JoinColumn (name = "salarie_id", referencedColumnName = "id"))
+	private List<Salarie> salaries = new ArrayList<Salarie>();
+	@OneToOne(mappedBy = "prestation")
 	private Facture facture;
 	
 	public Prestation() {
@@ -138,6 +138,43 @@ public class Prestation {
 
 	public void setProjet(Projet projet) {
 		this.projet = projet;
+	}
+
+	public Offre getOffre() {
+		return offre;
+	}
+
+	public void setOffre(Offre offre) {
+		this.offre = offre;
+	}
+
+	public Prestataire getPrestataire() {
+		return prestataire;
+	}
+
+	public void setPrestataire(Prestataire prestataire) {
+		this.prestataire = prestataire;
+	}
+
+
+	public List<Salarie> getSalaries() {
+		return salaries;
+	}
+
+	public void setSalaries(List<Salarie> salaries) {
+		this.salaries = salaries;
+	}
+	
+	public void addSalaries(Salarie salarie) {
+		this.salaries.add(salarie);
+	}
+
+	public Facture getFacture() {
+		return facture;
+	}
+
+	public void setFacture(Facture facture) {
+		this.facture = facture;
 	}
 	
 	
