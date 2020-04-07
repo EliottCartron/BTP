@@ -24,8 +24,6 @@ import btp.persistence.jpa.MaitreOeuvreDaoJpa;
 import btp.persistence.jpa.MaitreOuvrageDaoJpa;
 import btp.persistence.jpa.OffreDaoJpa;
 import btp.persistence.jpa.UtilisateurDaoJpa;
-import javax.persistence.EntityManagerFactory;
-import javax.persistence.Persistence;
 
 import btp.persistence.IActionDao;
 import btp.persistence.IFactureDao;
@@ -92,10 +90,6 @@ public class Application {
 
 	public IUtilisateurDao getUtilisateurDao() {
 		return utilisateurDao;
-	}
-	
-	public IActionDao getVilleDao() {
-		return actionDao;
 	}
 
 	public IActionDao getActionDao() {
