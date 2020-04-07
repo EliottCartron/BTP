@@ -11,10 +11,11 @@ import javax.persistence.OneToOne;
 @Entity
 @DiscriminatorValue("MOeuvre")
 public class MaitreOeuvre extends Societe {
+	
 	@OneToMany(mappedBy = "maitreOeuvre")
 	private List<Offre> offres = new ArrayList<Offre>();
 
-	@OneToOne
+	@OneToMany(mappedBy = "maitreOeuvre")
 	private Facture facture;
 
 	// Constructeur

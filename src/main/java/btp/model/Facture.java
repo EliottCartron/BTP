@@ -38,7 +38,7 @@ public class Facture {
 	@JoinColumn(name = "prestataire_id")
 	private Prestataire prestataire;
 	
-	@OneToOne
+	@ManyToOne
 	private MaitreOeuvre maitreOeuvre;
 	
 	@ManyToOne

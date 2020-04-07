@@ -48,9 +48,9 @@ public class Prestation {
 	@JoinColumn(name = "prestataire_id")
 	private Prestataire prestataire;
 	@ManyToMany
-	@JoinTable(name ="salerie_presta",
-	joinColumns = @JoinColumn (name = "prestation_id ", referencedColumnName = "id"),
-	inverseJoinColumns = @JoinColumn (name = "salarie_id", referencedColumnName = "id"))
+	@JoinTable(name ="salarie_presta", 
+	joinColumns = @JoinColumn (name = "salarie_id ", referencedColumnName = "id"), 
+	inverseJoinColumns = @JoinColumn (name = "prestation_id ", referencedColumnName = "id")) 
 	private List<Salarie> salaries = new ArrayList<Salarie>();
 	@OneToOne(mappedBy = "prestation")
 	private Facture facture;

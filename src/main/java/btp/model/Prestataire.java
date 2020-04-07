@@ -12,7 +12,14 @@ import javax.persistence.OneToMany;
 
 @Entity
 @DiscriminatorValue("Prestataire")
-public class Prestataire extends Societe{ 
+public class Prestataire extends Societe {
+	@Id
+	@GeneratedValue
+	private Long id;
+
+	@Column(name = "nom")
+	private String nom;
+
 	@OneToMany(mappedBy = "prestataire")
 	private List<Action> actions = new ArrayList<Action>();
 

@@ -45,11 +45,11 @@ public class PrestationSupplementaire {
 	@JoinColumn(name = "prestataire_id")
 	private Prestataire prestataire;
 	@ManyToMany
-	@JoinTable(name ="salarie_prestaSupp",
+	@JoinTable(name ="salarie_presta_Supp", 
 	joinColumns = @JoinColumn (name = "salarie_id ", referencedColumnName = "id"),
 	inverseJoinColumns = @JoinColumn (name = "prestationSupplementaire_id ", referencedColumnName = "id"))
 	private List<Salarie> salaries = new ArrayList<Salarie>();
-	@OneToOne(mappedBy = "prestationSupplementaire")
+	@OneToOne(mappedBy = "prestationSupplementaire") 
 	private Facture facture;
 	
 	
