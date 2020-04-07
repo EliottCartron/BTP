@@ -41,9 +41,9 @@ public class Action {
 	@JoinColumn(name = "prestataire_id")
 	private Prestataire prestataire;
 
-//	@ManyToOne
-//	@JoinColumn(name = "prestataire_id")
-//	private Projet projets;
+	@ManyToOne
+	@JoinColumn(name = "prestataire_id")
+	private Projet projets;
 
 	
 	public Action() {
@@ -136,18 +136,18 @@ public class Action {
 		this.prestataire = prestataire;
 	}
 
-//	public Projet getProjets() {
-//		return projets;
-//	}
-//
-//	public void setProjets(Projet projets) {
-//		this.projets = projets;
-//	}
+	public Projet getProjets() {
+		return projets;
+	}
 
-//	@Override
-//	public String toString() {
-//		return "Action [id=" + id + ", nomAction=" + nomAction + ", dtCreation=" + dtCreation + ", dtLimite=" + dtLimite
-//				+ ", description=" + description + ", effectuee=" + effectuee + "]";
-//	}
+	public void setProjets(Projet projets) {
+		this.projets = projets;
+	}
+
+	@Override
+	public String toString() {
+		return "Action [id=" + id + ", nomAction=" + nomAction + ", dtCreation=" + dtCreation + ", dtLimite=" + dtLimite
+				+ ", description=" + description + ", effectuee=" + effectuee + "]";
+	}
 
 }

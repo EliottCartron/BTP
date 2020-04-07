@@ -38,19 +38,19 @@ public class Salarie {
 	@JoinColumn(name = "prestataire_id")
 	private Prestataire prestataire;
 	
-//	@ManyToMany
-//	@JoinTable(name = "prestation_salarie", 
-//			uniqueConstraints = @UniqueConstraint(columnNames = { "salarie_id", "prestation_id" }),
-//			joinColumns = @JoinColumn(name="salarie_id", referencedColumnName = "id"), 
-//			inverseJoinColumns = @JoinColumn(name="prestation_id", referencedColumnName = "id"))
-//	private List<Prestation> prestations = new ArrayList<Prestation>();
-//	
-//	@ManyToMany
-//	@JoinTable(name = "prestationsup_salarie", 
-//			uniqueConstraints = @UniqueConstraint(columnNames = { "salarie_id", "prestationsup_id" }),
-//			joinColumns = @JoinColumn(name="salarie_id", referencedColumnName = "id"), 
-//			inverseJoinColumns = @JoinColumn(name="prestationsup_id", referencedColumnName = "id"))
-//	private List<PrestationSupplementaire> prestationSupplementaires = new ArrayList<PrestationSupplementaire>();
+	@ManyToMany
+	@JoinTable(name = "prestation_salarie", 
+			uniqueConstraints = @UniqueConstraint(columnNames = { "salarie_id", "prestation_id" }),
+			joinColumns = @JoinColumn(name="salarie_id", referencedColumnName = "id"), 
+			inverseJoinColumns = @JoinColumn(name="prestation_id", referencedColumnName = "id"))
+	private List<Prestation> prestations = new ArrayList<Prestation>();
+	
+	@ManyToMany
+	@JoinTable(name = "prestationsup_salarie", 
+			uniqueConstraints = @UniqueConstraint(columnNames = { "salarie_id", "prestationsup_id" }),
+			joinColumns = @JoinColumn(name="salarie_id", referencedColumnName = "id"), 
+			inverseJoinColumns = @JoinColumn(name="prestationsup_id", referencedColumnName = "id"))
+	private List<PrestationSupplementaire> prestationSupplementaires = new ArrayList<PrestationSupplementaire>();
 
 	
 	public Salarie() {
@@ -125,27 +125,27 @@ public class Salarie {
 		this.prestataire = prestataire;
 	}
 
-//	public List<Prestation> getPrestations() {
-//		return prestations;
-//	}
-//
-//	public void setPrestations(List<Prestation> prestations) {
-//		this.prestations = prestations;
-//	}
-//
-//	public List<PrestationSupplementaire> getPrestationSupplementaires() {
-//		return prestationSupplementaires;
-//	}
-//
-//	public void setPrestationSupplementaires(List<PrestationSupplementaire> prestationSupplementaires) {
-//		this.prestationSupplementaires = prestationSupplementaires;
-//	}
+	public List<Prestation> getPrestations() {
+		return prestations;
+	}
 
-//	@Override
-//	public String toString() {
-//		return "Salarie [id=" + id + ", version=" + version + ", nom=" + nom + ", prenom=" + prenom + ", metier="
-//				+ metier + "]";
-//	}
+	public void setPrestations(List<Prestation> prestations) {
+		this.prestations = prestations;
+	}
+
+	public List<PrestationSupplementaire> getPrestationSupplementaires() {
+		return prestationSupplementaires;
+	}
+
+	public void setPrestationSupplementaires(List<PrestationSupplementaire> prestationSupplementaires) {
+		this.prestationSupplementaires = prestationSupplementaires;
+	}
+
+	@Override
+	public String toString() {
+		return "Salarie [id=" + id + ", version=" + version + ", nom=" + nom + ", prenom=" + prenom + ", metier="
+				+ metier + "]";
+	}
 	
 	
 }

@@ -11,37 +11,37 @@ import javax.persistence.Id;
 import javax.persistence.OneToMany;
 
 @Entity
-// @DiscriminatorValue("Prestataire")
+ @DiscriminatorValue("Prestataire")
 public class Prestataire { // extends Societe
 	@Id
 	@GeneratedValue
 	private Long id;
-	
-	@Column(name="nom")
+
+	@Column(name = "nom")
 	private String nom;
-	
-	@OneToMany (mappedBy = "prestataire")
+
+	@OneToMany(mappedBy = "prestataire")
 	private List<Action> actions = new ArrayList<Action>();
-	
-	@OneToMany (mappedBy = "prestataire")
+
+	@OneToMany(mappedBy = "prestataire")
 	private List<Facture> factures = new ArrayList<Facture>();
-	
-	@OneToMany (mappedBy = "prestataire")
+
+	@OneToMany(mappedBy = "prestataire")
 	private List<Salarie> salarie = new ArrayList<Salarie>();
-	
-//	@OneToMany (mappedBy = "prestataire")
-//	private List<PrestationSupplementaire> prestationSupplementaire = new ArrayList<PrestationSupplementaire>();
-//
-//	@OneToMany (mappedBy = "prestataire")
-//	private List<Materiel> materiel = new ArrayList<Materiel>();
-//
-//	@OneToMany (mappedBy = "prestataire")
-//	private List<Prestation> prestation = new ArrayList<Prestation>();
-	
+
+	@OneToMany(mappedBy = "prestataire")
+	private List<PrestationSupplementaire> prestationSupplementaire = new ArrayList<PrestationSupplementaire>();
+
+	@OneToMany(mappedBy = "prestataire")
+	private List<Materiel> materiel = new ArrayList<Materiel>();
+
+	@OneToMany(mappedBy = "prestataire")
+	private List<Prestation> prestation = new ArrayList<Prestation>();
+
 	public Prestataire() {
 		super();
 	}
-	
+
 	public Prestataire(String nom) {
 		super();
 		this.nom = nom;
@@ -87,31 +87,28 @@ public class Prestataire { // extends Societe
 		this.salarie = salarie;
 	}
 
-//	public List<PrestationSupplementaire> getPrestationSupplementaire() {
-//		return prestationSupplementaire;
-//	}
-//
-//	public void setPrestationSupplementaire(List<PrestationSupplementaire> prestationSupplementaire) {
-//		this.prestationSupplementaire = prestationSupplementaire;
-//	}
-//
-//	public List<Materiel> getMateriel() {
-//		return materiel;
-//	}
-//
-//	public void setMateriel(List<Materiel> materiel) {
-//		this.materiel = materiel;
-//	}
-//
-//	public List<Prestation> getPrestation() {
-//		return prestation;
-//	}
-//
-//	public void setPrestation(List<Prestation> prestation) {
-//		this.prestation = prestation;
-//	}
-	
-	
-	
+	public List<PrestationSupplementaire> getPrestationSupplementaire() {
+		return prestationSupplementaire;
+	}
+
+	public void setPrestationSupplementaire(List<PrestationSupplementaire> prestationSupplementaire) {
+		this.prestationSupplementaire = prestationSupplementaire;
+	}
+
+	public List<Materiel> getMateriel() {
+		return materiel;
+	}
+
+	public void setMateriel(List<Materiel> materiel) {
+		this.materiel = materiel;
+	}
+
+	public List<Prestation> getPrestation() {
+		return prestation;
+	}
+
+	public void setPrestation(List<Prestation> prestation) {
+		this.prestation = prestation;
+	}
 
 }

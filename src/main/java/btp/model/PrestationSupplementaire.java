@@ -16,7 +16,6 @@ import javax.persistence.ManyToOne;
 import javax.persistence.OneToOne;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
-import javax.persistence.Transient;
 
 @Entity
 public class PrestationSupplementaire {
@@ -42,16 +41,16 @@ public class PrestationSupplementaire {
 	@ManyToOne
 	@JoinColumn(name = "projet_id")
 	private Projet projet;
-//	@ManyToOne
-//	@JoinColumn(name = "prestataire_id")
-//	private Prestataire prestataire;
-//	@ManyToMany
-//	@JoinTable(name =" ",
-//	joinColumns = @JoinColumn (name = "salarie_id ", referencedColumnName = "id"),
-//	inverseJoinColumns = @JoinColumn (name = "prestationSupplementaire_id ", referencedColumnName = "id"))
-//	private Salarie salarie;
-//	@OneToOne(mappedBy = "facture")
-//	private Facture facture;
+	@ManyToOne
+	@JoinColumn(name = "prestataire_id")
+	private Prestataire prestataire;
+	@ManyToMany
+	@JoinTable(name =" ",
+	joinColumns = @JoinColumn (name = "salarie_id ", referencedColumnName = "id"),
+	inverseJoinColumns = @JoinColumn (name = "prestationSupplementaire_id ", referencedColumnName = "id"))
+	private Salarie salarie;
+	@OneToOne(mappedBy = "facture")
+	private Facture facture;
 	
 	
 	

@@ -41,19 +41,19 @@ public class Prestation {
 	@ManyToOne
 	@JoinColumn(name = "projet_id")
 	private Projet projet;
-//	@ManyToOne
-//	@JoinColumn(name = "offre_id")
-//	private Offre offre;
-//	@ManyToOne
-//	@JoinColumn(name = "prestataire_id")
-//	private Prestataire prestataire;
-//	@ManyToMany
-//	@JoinTable(name =" ",
-//	joinColumns = @JoinColumn (name = "salarie_id ", referencedColumnName = "id"),
-//	inverseJoinColumns = @JoinColumn (name = "prestation_id ", referencedColumnName = "id"))
-//	private Salarie salarie;
-//	@OneToOne(mappedBy = "facture")
-//	private Facture facture;
+	@ManyToOne
+	@JoinColumn(name = "offre_id")
+	private Offre offre;
+	@ManyToOne
+	@JoinColumn(name = "prestataire_id")
+	private Prestataire prestataire;
+	@ManyToMany
+	@JoinTable(name =" ",
+	joinColumns = @JoinColumn (name = "salarie_id ", referencedColumnName = "id"),
+	inverseJoinColumns = @JoinColumn (name = "prestation_id ", referencedColumnName = "id"))
+	private Salarie salarie;
+	@OneToOne(mappedBy = "facture")
+	private Facture facture;
 	
 	public Prestation() {
 		super();

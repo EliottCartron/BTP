@@ -25,9 +25,9 @@ public class Materiel {
 	private List<PrestationSupplementaire> prestationSupplementaires = new ArrayList<PrestationSupplementaire>();
 	@ManyToMany (mappedBy = "materiels")
 	private List<Prestation> prestations = new ArrayList<Prestation>();
-//	@ManyToOne
-//	@JoinColumn(name = "prestataire_id")
-//	private Prestataire prestataire;
+	@ManyToOne
+	@JoinColumn(name = "prestataire_id")
+	private Prestataire prestataire;
 	
 	public Materiel() {
 		super();

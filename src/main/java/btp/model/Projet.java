@@ -34,13 +34,13 @@ public class Projet {
 	@OneToMany(mappedBy = "projet")
 	@Transient
 	private List<Prestation> prestations = new ArrayList<Prestation>();
-//	@OneToOne(mappedBy = "projet")
-//	private Facture facture;
-//	@OneToOne
-//	@JoinColumn(name = "offre_id")
-//	private Offre offre;
-//	@OneToMany(mappedBy = "projet")
-//	private List<Action> actions = new ArrayList<Action>();
+	@OneToOne(mappedBy = "projet")
+	private Facture facture;
+	@OneToOne
+	@JoinColumn(name = "offre_id")
+	private Offre offre;
+	@OneToMany(mappedBy = "projet")
+	private List<Action> actions = new ArrayList<Action>();
 	
 	public Projet() {
 		super();

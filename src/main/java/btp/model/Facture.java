@@ -38,20 +38,20 @@ public class Facture {
 	@JoinColumn(name = "prestataire_id")
 	private Prestataire prestataire;
 	
-//	@OneToOne
-//	private MaitreOeuvre maitreOeuvre;
-//	
-//	@ManyToOne
-//	private MaitreOuvrage maitreOuvrage;
-//	
-//	@OneToOne
-//	private Projet projet;
-//	
-//	@OneToOne
-//	private PrestationSupplementaire prestationSupplementaire;
-//	
-//	@OneToOne
-//	private Prestation prestation;
+	@OneToOne
+	private MaitreOeuvre maitreOeuvre;
+	
+	@ManyToOne
+	private MaitreOuvrage maitreOuvrage;
+	
+	@OneToOne
+	private Projet projet;
+	
+	@OneToOne
+	private PrestationSupplementaire prestationSupplementaire;
+	
+	@OneToOne
+	private Prestation prestation;
 	
 	
 	public Facture() {
@@ -76,45 +76,45 @@ public class Facture {
 
 
 
-//	public MaitreOeuvre getMaitreOeuvre() {
-//		return maitreOeuvre;
-//	}
-//
-//	public void setMaitreOeuvre(MaitreOeuvre maitreOeuvre) {
-//		this.maitreOeuvre = maitreOeuvre;
-//	}
-//
-//	public MaitreOuvrage getMaitreOuvrage() {
-//		return maitreOuvrage;
-//	}
-//
-//	public void setMaitreOuvrage(MaitreOuvrage maitreOuvrage) {
-//		this.maitreOuvrage = maitreOuvrage;
-//	}
-//
-//	public Projet getProjet() {
-//		return projet;
-//	}
-//
-//	public void setProjet(Projet projet) {
-//		this.projet = projet;
-//	}
-//
-//	public PrestationSupplementaire getPrestationSupplementaire() {
-//		return prestationSupplementaire;
-//	}
-//
-//	public void setPrestationSupplementaire(PrestationSupplementaire prestationSupplementaire) {
-//		this.prestationSupplementaire = prestationSupplementaire;
-//	}
-//
-//	public Prestation getPrestation() {
-//		return prestation;
-//	}
-//
-//	public void setPrestation(Prestation prestation) {
-//		this.prestation = prestation;
-//	}
+	public MaitreOeuvre getMaitreOeuvre() {
+		return maitreOeuvre;
+	}
+
+	public void setMaitreOeuvre(MaitreOeuvre maitreOeuvre) {
+		this.maitreOeuvre = maitreOeuvre;
+	}
+
+	public MaitreOuvrage getMaitreOuvrage() {
+		return maitreOuvrage;
+	}
+
+	public void setMaitreOuvrage(MaitreOuvrage maitreOuvrage) {
+		this.maitreOuvrage = maitreOuvrage;
+	}
+
+	public Projet getProjet() {
+		return projet;
+	}
+
+	public void setProjet(Projet projet) {
+		this.projet = projet;
+	}
+
+	public PrestationSupplementaire getPrestationSupplementaire() {
+		return prestationSupplementaire;
+	}
+
+	public void setPrestationSupplementaire(PrestationSupplementaire prestationSupplementaire) {
+		this.prestationSupplementaire = prestationSupplementaire;
+	}
+
+	public Prestation getPrestation() {
+		return prestation;
+	}
+
+	public void setPrestation(Prestation prestation) {
+		this.prestation = prestation;
+	}
 
 	public Long getId() {
 		return id;
@@ -188,11 +188,11 @@ public class Facture {
 		this.prestataire = prestataire;
 	}
 
-//	@Override
-//	public String toString() {
-//		return "Facture [id=" + id + ", version=" + version + ", numeroFacture=" + numeroFacture + ", dtFacturation="
-//				+ dtFacturation + ", prixHT=" + prixHT + ", remise=" + remise + ", dtEcheance=" + dtEcheance
-//				+ ", penaliteRetard=" + penaliteRetard + "]";
-//	}
+	@Override
+	public String toString() {
+		return "Facture [id=" + id + ", version=" + version + ", numeroFacture=" + numeroFacture + ", dtFacturation="
+				+ dtFacturation + ", prixHT=" + prixHT + ", remise=" + remise + ", dtEcheance=" + dtEcheance
+				+ ", penaliteRetard=" + penaliteRetard + "]";
+	}
 	
 }
