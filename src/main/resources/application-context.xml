@@ -35,7 +35,7 @@
 	<!-- On crée un entityManagerFactory local à partir de la dataSource -->
 	<bean id="entityManagerFactory"	class="org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean">
 		<property name="dataSource" ref="dataSource" />
-		<property name="packagesToScan" value="btp.model" />
+		<property name="packagesToScan" value="sopra.formation.model" />
 
 		<!--On précise le provider ... -->
 		<property name="jpaVendorAdapter">
