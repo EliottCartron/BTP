@@ -127,8 +127,6 @@ public class TestBTP {
 		reu1.setProjet(projet1);
 		
 		reu1 = Application.getInstance().getReunionDao().save(reu1);
-
-		
 	}
 
 }
