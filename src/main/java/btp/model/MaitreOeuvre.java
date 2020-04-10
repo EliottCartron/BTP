@@ -44,7 +44,4 @@ public class MaitreOeuvre extends Societe {
 	public void setFacture(List<Facture> facture) {
 		this.facture = facture;
 	}
-
-	
-
 }
