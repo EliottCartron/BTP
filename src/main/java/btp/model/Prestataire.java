@@ -42,12 +42,21 @@ public class Prestataire extends Societe {
 		super();
 	}
 
+	public Prestataire(String nom) {
+		super();
+		this.nom = nom;
+	}
+
 	public List<Action> getActions() {
 		return actions;
 	}
 
 	public void setActions(List<Action> actions) {
 		this.actions = actions;
+	}
+	
+	public void addActions(Action action) {
+		this.actions.add(action);
 	}
 
 	public List<Facture> getFactures() {
@@ -57,6 +66,10 @@ public class Prestataire extends Societe {
 	public void setFactures(List<Facture> factures) {
 		this.factures = factures;
 	}
+	
+	public void addFactures(Facture facture) {
+		this.factures.add(facture);
+	}
 
 	public List<Salarie> getSalarie() {
 		return salarie;
@@ -64,6 +77,10 @@ public class Prestataire extends Societe {
 
 	public void setSalarie(List<Salarie> salarie) {
 		this.salarie = salarie;
+	}
+	
+	public void addSalarie(Salarie salarie) {
+		this.salarie.add(salarie);
 	}
 
 	public List<PrestationSupplementaire> getPrestationSupplementaire() {
@@ -73,6 +90,10 @@ public class Prestataire extends Societe {
 	public void setPrestationSupplementaire(List<PrestationSupplementaire> prestationSupplementaire) {
 		this.prestationSupplementaire = prestationSupplementaire;
 	}
+	
+	public void addPrestationSupplementaires(PrestationSupplementaire prestationSupplementaire) {
+		this.prestationSupplementaire.add(prestationSupplementaire);
+	}
 
 	public List<Materiel> getMateriel() {
 		return materiel;
@@ -81,6 +102,10 @@ public class Prestataire extends Societe {
 	public void setMateriel(List<Materiel> materiel) {
 		this.materiel = materiel;
 	}
+	
+	public void addMateriel(Materiel materiel) {
+		this.materiel.add(materiel);
+	}
 
 	public List<Prestation> getPrestation() {
 		return prestation;
@@ -88,6 +113,10 @@ public class Prestataire extends Societe {
 
 	public void setPrestation(List<Prestation> prestation) {
 		this.prestation = prestation;
+	}
+	
+	public void addPrestation(Prestation prestation) {
+		this.prestation.add(prestation);
 	}
 
 }

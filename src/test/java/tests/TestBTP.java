@@ -111,8 +111,9 @@ public class TestBTP {
 		offre1.setMaitreOeuvre(bob);
 		offre1.setMaitreOuvrage(toto);
 		offre1.setAppelOffre(appelOffre1);
-
+		
 		offre1 = offreDao.save(offre1);
+		
 		Prestataire colas = new Prestataire();
 		colas = prestataireDao.save(colas);
 
@@ -141,6 +142,8 @@ public class TestBTP {
 		reu1.setProjet(projet1);
 
 		reu1 = reunionDao.save(reu1);
+		
+		context.close();
 
 	}
 
