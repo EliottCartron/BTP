@@ -7,6 +7,7 @@ import java.util.List;
 import javax.persistence.Entity;
 import javax.persistence.EnumType;
 import javax.persistence.Enumerated;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.ManyToOne;
@@ -43,7 +44,7 @@ public class Offre {
 	@OneToMany(mappedBy = "offre")
 	private List<Prestation> prestations = new ArrayList<Prestation>();
 	
-	@OneToOne (mappedBy = "offre")
+	@OneToOne (mappedBy = "offre", fetch = FetchType.EAGER)
 	private Projet projet;
 
 	// Constructeurs

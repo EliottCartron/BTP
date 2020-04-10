@@ -6,4 +6,5 @@ import btp.model.AppelOffre;
 
 public interface IAppelOffreRepository extends JpaRepository<AppelOffre, Long> {
 
+	
 }

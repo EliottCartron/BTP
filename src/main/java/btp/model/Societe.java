@@ -1,5 +1,6 @@
 package btp.model;
 
+import javax.persistence.Column;
 import javax.persistence.DiscriminatorColumn;
 import javax.persistence.DiscriminatorType;
 import javax.persistence.Embedded;
@@ -18,9 +19,12 @@ public class Societe {
 	@GeneratedValue
 	private Long id;
 	private String nom;
+	@Column(unique=true)
 	private String siret;
 	private String telephone;
+	@Column(unique=true)
 	private String mail;
+	@Column(unique=true)
 	private String numeroDeTva;
 	
 	@OneToOne 

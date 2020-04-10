@@ -34,6 +34,8 @@ public class Facture {
 	
 	private Float penaliteRetard;
 	
+	private Boolean payee;
+	
 	@ManyToOne
 	@JoinColumn(name = "prestataire_id")
 	private Prestataire prestataire;
@@ -187,6 +189,14 @@ public class Facture {
 	public void setPrestataire(Prestataire prestataire) {
 		this.prestataire = prestataire;
 	}
+	
+	public Boolean getPayee() {
+		return payee;
+	}
+
+	public void setPayee(Boolean payee) {
+		this.payee = payee;
+	}
 
 	@Override
 	public String toString() {
@@ -194,5 +204,7 @@ public class Facture {
 				+ dtFacturation + ", prixHT=" + prixHT + ", remise=" + remise + ", dtEcheance=" + dtEcheance
 				+ ", penaliteRetard=" + penaliteRetard + "]";
 	}
+
+	
 	
 }

@@ -30,6 +30,7 @@ public class Prestation {
 	private Date dtDebut ;
 	@Temporal(TemporalType.DATE)
 	private Date dtFin;
+	private PhasePresta phasePresta;
 	private Boolean obsolete;
 	@OneToOne (mappedBy = "prestation")
 	private PrestationSupplementaire prestationSupplementaire;
@@ -175,6 +176,14 @@ public class Prestation {
 
 	public void setFacture(Facture facture) {
 		this.facture = facture;
+	}
+
+	public PhasePresta getPhasePresta() {
+		return phasePresta;
+	}
+
+	public void setPhasePresta(PhasePresta phasePresta) {
+		this.phasePresta = phasePresta;
 	}
 	
 	

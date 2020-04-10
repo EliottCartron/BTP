@@ -18,6 +18,7 @@ public class AppelOffre {
 	@Id
 	@GeneratedValue
 	private Long id;
+	private String nom;
 	private String objectif;
 	private Float budget;
 	@Temporal(TemporalType.DATE)
@@ -145,6 +146,14 @@ public class AppelOffre {
 	public void setOffres(List<Offre> offres) {
 		this.offres = offres;
 	}
+	
+	public String getNom() {
+		return nom;
+	}
+
+	public void setNom(String nom) {
+		this.nom = nom;
+	}
 
 	@Override
 	public String toString() {
@@ -152,5 +161,7 @@ public class AppelOffre {
 				+ ", dtFin=" + dtFin + ", dtLimite=" + dtLimite + ", bpu=" + bpu + ", prixBpu=" + prixBpu
 				+ ", maitreOuvrage=" + maitreOuvrage + ", offres=" + offres + "]";
 	}
+
+	
 
 }
