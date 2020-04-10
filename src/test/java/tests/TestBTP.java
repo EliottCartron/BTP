@@ -21,14 +21,14 @@ import btp.model.Reunion;
 import btp.model.Unite;
 import btp.model.Utilisateur;
 import btp.persistence.IActionDao;
-import btp.persistence.IAppelOffreDao;
-import btp.persistence.IFactureDao;
-import btp.persistence.IMaitreOeuvreDao;
-import btp.persistence.IMaitreOuvrageDao;
-import btp.persistence.IOffreDao;
-import btp.persistence.IPrestataireDao;
-import btp.persistence.ISalarieDao;
-import btp.persistence.IUtilisateurDao;
+import btp.persistence.IAppelOffreRepository;
+import btp.persistence.IFactureRepository;
+import btp.persistence.IMaitreOeuvreRepository;
+import btp.persistence.IMaitreOuvrageRepository;
+import btp.persistence.IOffreRepository;
+import btp.persistence.IPrestataireRepository;
+import btp.persistence.ISalarieRepository;
+import btp.persistence.IUtilisateurRepository;
 
 public class TestBTP {
 
@@ -49,11 +49,11 @@ public class TestBTP {
 		presta1 = Application.getInstance().getPrestationDao().save(presta1);
 		supp1 = Application.getInstance().getPrestationSupplementaireDao().save(supp1);
 
-		IAppelOffreDao appelOffreDao = Application.getInstance().getAppelOffreDao();
-		IMaitreOeuvreDao maitreOeuvreDao = Application.getInstance().getMaitreOeuvreDao();
-		IMaitreOuvrageDao maitreOuvrageDao = Application.getInstance().getMaitreOuvrageDao();
-		IOffreDao offreDao = Application.getInstance().getOffreDao();
-		IUtilisateurDao utilisateurDao = Application.getInstance().getUtilisateurDao();
+		IAppelOffreRepository appelOffreDao = Application.getInstance().getAppelOffreDao();
+		IMaitreOeuvreRepository maitreOeuvreDao = Application.getInstance().getMaitreOeuvreDao();
+		IMaitreOuvrageRepository maitreOuvrageDao = Application.getInstance().getMaitreOuvrageDao();
+		IOffreRepository offreDao = Application.getInstance().getOffreDao();
+		IUtilisateurRepository utilisateurDao = Application.getInstance().getUtilisateurDao();
 
 
 		AppelOffre appelOffre1 = new AppelOffre("maison", 33000F, sdf.parse("07/04/2021"), sdf.parse("07/04/2022"), sdf.parse("15/12/2021"), false, null);
@@ -94,9 +94,9 @@ public class TestBTP {
 		offre1 = offreDao.save(offre1);		
 		
 		IActionDao testAction = Application.getInstance().getActionDao();
-		IFactureDao testFacture = Application.getInstance().getFactureDao();
-		IPrestataireDao testPrestataire = Application.getInstance().getPrestataireDao();
-		ISalarieDao testSalarie = Application.getInstance().getSalarieDao();
+		IFactureRepository testFacture = Application.getInstance().getFactureDao();
+		IPrestataireRepository testPrestataire = Application.getInstance().getPrestataireDao();
+		ISalarieRepository testSalarie = Application.getInstance().getSalarieDao();
 		
 		Prestataire colas = new Prestataire();
 		colas = Application.getInstance().getPrestataireDao().save(colas);
