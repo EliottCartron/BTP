@@ -52,15 +52,17 @@ public class Offre {
 		super();
 	}
 
-	
 
-	public Offre(Float prix, int numeroDevis, Date dtDebut, Date dtFin) {
+	public Offre(Float prix, int numeroDevis, Date dtDebut, Date dtFin, Etat etat) {
 		super();
 		this.prix = prix;
 		this.numeroDevis = numeroDevis;
 		this.dtDebut = dtDebut;
 		this.dtFin = dtFin;
+		this.etat = etat;
 	}
+
+
 
 	// Getters and Setters
 

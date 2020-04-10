@@ -3,6 +3,8 @@ package tests;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 
+import org.springframework.context.support.ClassPathXmlApplicationContext;
+
 import btp.model.Action;
 import btp.model.AppelOffre;
 import btp.model.Categorie;
@@ -33,8 +35,6 @@ import btp.persistence.IProjetRepository;
 import btp.persistence.IReunionRepository;
 import btp.persistence.ISalarieRepository;
 import btp.persistence.IUtilisateurRepository;
-import org.springframework.context.annotation.AnnotationConfigApplicationContext;
-import org.springframework.context.support.ClassPathXmlApplicationContext;
 
 public class TestBTP {
 
@@ -103,7 +103,7 @@ public class TestBTP {
 		appelOffre1.setMaitreOuvrage(toto);
 		appelOffre1 = appelOffreDao.save(appelOffre1);
 
-		Offre offre1 = new Offre(60000F, 45, sdf.parse("07/04/2021"), sdf.parse("07/04/2023"));
+		Offre offre1 = new Offre(60000F, 45, sdf.parse("07/04/2021"), sdf.parse("07/04/2023"), Etat.clot);
 		offre1 = offreDao.save(offre1);
 
 		offre1.setEtat(Etat.clot);
