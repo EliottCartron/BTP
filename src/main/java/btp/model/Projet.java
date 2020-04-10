@@ -139,4 +139,34 @@ public class Projet {
 		this.prestations.add(prestation);
 	}
 
+	public Facture getFacture() {
+		return facture;
+	}
+
+	public void setFacture(Facture facture) {
+		this.facture = facture;
+	}
+
+	public Offre getOffre() {
+		return offre;
+	}
+
+	public void setOffre(Offre offre) {
+		this.offre = offre;
+	}
+
+	public List<Action> getActions() {
+		return actions;
+	}
+
+	public void setActions(List<Action> actions) {
+		this.actions = actions;
+	}
+	
+	public void addActions(Action action) {
+		this.actions.add(action);
+	}
+	
+	
+
 }

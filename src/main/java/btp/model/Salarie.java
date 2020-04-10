@@ -116,6 +116,10 @@ public class Salarie {
 	public void setActions(List<Action> actions) {
 		this.actions = actions;
 	}
+	
+	public void addActions(Action action) {
+		this.actions.add(action);
+	}
 
 	public Prestataire getPrestataire() {
 		return prestataire;
@@ -132,6 +136,10 @@ public class Salarie {
 	public void setPrestations(List<Prestation> prestations) {
 		this.prestations = prestations;
 	}
+	
+	public void addPrestation(Prestation prestation) {
+		this.prestations.add(prestation);
+	}
 
 	public List<PrestationSupplementaire> getPrestationSupplementaires() {
 		return prestationSupplementaires;
@@ -139,6 +147,10 @@ public class Salarie {
 
 	public void setPrestationSupplementaires(List<PrestationSupplementaire> prestationSupplementaires) {
 		this.prestationSupplementaires = prestationSupplementaires;
+	}
+	
+	public void addPrestationSupplementaires(PrestationSupplementaire prestationSupplementaire) {
+		this.prestationSupplementaires.add(prestationSupplementaire);
 	}
 
 	@Override
