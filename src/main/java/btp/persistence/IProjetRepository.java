@@ -15,11 +15,11 @@ public interface IProjetRepository extends JpaRepository<Projet, Long>{
 	List <Projet> findAllByMaitreOuvrage(@Param("nom") String nom);
 	
 	//Page accueil EG liste deroulante projets
-	@Query("select p from Projet p where p.offre.prestataire.nom= :nom")
+	@Query("select p from Projet p join p.prestations presta join presta.prestataire pres where pres.nom= :nom")
 	List <Projet> findAllByPrestataire(@Param("nom") String nom);
 	
 	//Page accueil Maitre œuvre liste deroulante projets
-	@Query("select p from Projet p where p.offre.prestataire.nom= :nom")
+	@Query("select p from Projet p where p.offre.maitreOeuvre.nom= :nom")
 	List <Projet> findAllByMaitreOeuvre(@Param("nom") String nom);
 	
 }

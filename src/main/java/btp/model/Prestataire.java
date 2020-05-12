@@ -3,22 +3,14 @@ package btp.model;
 import java.util.ArrayList;
 import java.util.List;
 
-import javax.persistence.Column;
 import javax.persistence.DiscriminatorValue;
 import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
 import javax.persistence.OneToMany;
 
 @Entity
 @DiscriminatorValue("Prestataire")
 public class Prestataire extends Societe {
-	@Id
-	@GeneratedValue
-	private Long id;
-
-	@Column(name = "nom")
-	private String nom;
+	
 
 	@OneToMany(mappedBy = "prestataire")
 	private List<Action> actions = new ArrayList<Action>();
@@ -42,12 +34,8 @@ public class Prestataire extends Societe {
 		super();
 	}
 
-	public Prestataire(String nom) {
-		super();
-		this.nom = nom;
-	}
 	
-		public Prestataire(String nom, String siret, String telephone, String mail, String numeroDeTva) {
+	public Prestataire(String nom, String siret, String telephone, String mail, String numeroDeTva) {
 		super(nom, siret, telephone, mail, numeroDeTva);
 	}
 

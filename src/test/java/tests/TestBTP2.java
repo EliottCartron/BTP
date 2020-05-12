@@ -86,7 +86,7 @@ public class TestBTP2 {
 		
 		
 		// maitre d'oeuvre
-		MaitreOeuvre maitreOeuvreBob = new MaitreOeuvre("Bob", "14521256431", "0649753159", "boblebricoleur@gmail.fr",
+		MaitreOeuvre maitreOeuvreBob = new MaitreOeuvre("Bob", "14521256431", "0649753159", "boblebricolo@gmail.fr",
 				"354f435f41f");
 		maitreOeuvreBob.setAdresse(new Adresse("16 rue JFK", "3e étage", "33700", "Mérignac"));
 		MaitreOeuvre maitreOeuvreGeorges = new MaitreOeuvre("Georges", "16793458", "0734159382",
@@ -242,7 +242,7 @@ public class TestBTP2 {
 		// lien maitre d'ouvrage - utilisateur
 		maitreOuvrageBobby.setUtilisateur(utilisateurmaitreOuvrageBobby);
 		maitreOuvrageToto.setUtilisateur(utilisateurmaitreOuvrageToto);
-
+		
 		// lien matériel - prestataire
 		sable.setPrestataire(colas);
 		grillage.setPrestataire(bouygues);

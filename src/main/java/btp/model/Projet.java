@@ -33,7 +33,6 @@ public class Projet {
 	@OneToMany(mappedBy = "projet")
 	private List<PrestationSupplementaire> prestationSupplementaires = new ArrayList<PrestationSupplementaire>();
 	@OneToMany(mappedBy = "projet")
-	@Transient
 	private List<Prestation> prestations = new ArrayList<Prestation>();
 	@OneToOne(mappedBy = "projet")
 	private Facture facture;
@@ -164,13 +163,10 @@ public class Projet {
 		this.actions = actions;
 	}
 	
-<<<<<<< Updated upstream
 	public void addActions(Action action) {
 		this.actions.add(action);
 	}
 	
-=======
->>>>>>> Stashed changes
 	
 
 }
