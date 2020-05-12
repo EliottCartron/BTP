@@ -164,13 +164,7 @@ public class Projet {
 		this.actions = actions;
 	}
 	
-<<<<<<< Updated upstream
 	public void addActions(Action action) {
 		this.actions.add(action);
 	}
-	
-=======
->>>>>>> Stashed changes
-	
-
 }

@@ -13,7 +13,7 @@ public interface ISalarieRepository extends JpaRepository<Salarie, Long>{
 	@Query("select s from Salarie s where s.prestataire.nom = :nom")
 	List<Salarie> findByEntreprise(@Param("nom") String nom);
 	
-	@Query("select s from Salarie s where s.prestation.offre.appelOffre.nom = :nom")
-	List<Salarie> findByProjet(@Param("nom") String nom);
+//	@Query("select s from Salarie s where s.prestation.offre.appelOffre.nom = :nom")
+//	List<Salarie> findByProjet(@Param("nom") String nom);
 	
 }
