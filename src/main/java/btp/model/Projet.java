@@ -5,7 +5,6 @@ import java.util.Date;
 import java.util.List;
 
 import javax.persistence.Entity;
-import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
@@ -15,31 +14,45 @@ import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 import javax.persistence.Transient;
 
+import com.fasterxml.jackson.annotation.JsonView;
+
 
 @Entity
 public class Projet {
 	@Id
 	@GeneratedValue
+	@JsonView(Views.ViewCommon.class)
 	private Long id;
+	@JsonView(Views.ViewCommon.class)
 	private Integer numeroDevis;
 	@Temporal(TemporalType.DATE)
+	@JsonView(Views.ViewCommon.class)
 	private Date dtDebut;
 	@Temporal(TemporalType.DATE)
+	@JsonView(Views.ViewCommon.class)
 	private Date dtFin;
+	@JsonView(Views.ViewCommon.class)
 	private Integer arret;
+	@JsonView(Views.ViewCommon.class)
 	private String rapport;
 	@OneToMany(mappedBy = "projet")
+	@JsonView(Views.ViewProjet.class)
 	private List<Reunion> reunions = new ArrayList<Reunion>();
 	@OneToMany(mappedBy = "projet")
+	@JsonView(Views.ViewProjet.class)
 	private List<PrestationSupplementaire> prestationSupplementaires = new ArrayList<PrestationSupplementaire>();
 	@OneToMany(mappedBy = "projet")
+	@JsonView(Views.ViewProjet.class)
 	private List<Prestation> prestations = new ArrayList<Prestation>();
 	@OneToOne(mappedBy = "projet")
+	@JsonView(Views.ViewProjet.class)
 	private Facture facture;
 	@OneToOne
 	@JoinColumn(name = "offre_id")
+	@JsonView(Views.ViewProjet.class)
 	private Offre offre;
 	@OneToMany(mappedBy = "projet")
+	@JsonView(Views.ViewProjet.class)
 	private List<Action> actions = new ArrayList<Action>();
 	
 	public Projet() {

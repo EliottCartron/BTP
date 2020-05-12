@@ -17,40 +17,55 @@ import javax.persistence.OneToOne;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 
+import com.fasterxml.jackson.annotation.JsonView;
+
 @Entity
 public class PrestationSupplementaire {
 	@Id
 	@GeneratedValue
+	@JsonView(Views.ViewCommon.class)
 	private Long id;
 	@Enumerated(EnumType.STRING)
+	@JsonView(Views.ViewCommon.class)
 	private Categorie categorie;
+	@JsonView(Views.ViewCommon.class)
 	private String nom;
+	@JsonView(Views.ViewCommon.class)
 	private Float prix;
 	@Temporal(TemporalType.DATE)
+	@JsonView(Views.ViewCommon.class)
 	private Date dtDebut ;
 	@Temporal(TemporalType.DATE)
+	@JsonView(Views.ViewCommon.class)
 	private Date dtFin;
+	@JsonView(Views.ViewCommon.class)
 	private PhasePresta phasePresta;
 	@OneToOne 
 	@JoinColumn(name = "prestation_id")
+	@JsonView(Views.ViewPrestationSupplementaire.class)
 	private Prestation prestation;
 	@ManyToMany
 	@JoinTable(name ="matos_prestaSupp",
 	joinColumns = @JoinColumn (name = "prestationSupplementaire_id ", referencedColumnName = "id"),
 	inverseJoinColumns = @JoinColumn (name = "materiel_id ", referencedColumnName = "id"))
+	@JsonView(Views.ViewPrestationSupplementaire.class)
 	private List<Materiel> materiels = new ArrayList<Materiel>();
 	@ManyToOne
 	@JoinColumn(name = "projet_id")
+	@JsonView(Views.ViewPrestationSupplementaire.class)
 	private Projet projet;
 	@ManyToOne
 	@JoinColumn(name = "prestataire_id")
+	@JsonView(Views.ViewPrestationSupplementaire.class)
 	private Prestataire prestataire;
 	@ManyToMany
 	@JoinTable(name ="salarie_presta_Supp", 
 	joinColumns = @JoinColumn (name = "salarie_id ", referencedColumnName = "id"),
 	inverseJoinColumns = @JoinColumn (name = "prestationSupplementaire_id ", referencedColumnName = "id"))
+	@JsonView(Views.ViewPrestationSupplementaire.class)
 	private List<Salarie> salaries = new ArrayList<Salarie>();
 	@OneToOne(mappedBy = "prestationSupplementaire") 
+	@JsonView(Views.ViewPrestationSupplementaire.class)
 	private Facture facture;
 	
 	

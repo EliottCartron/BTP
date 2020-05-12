@@ -6,16 +6,23 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.OneToOne;
 
+import com.fasterxml.jackson.annotation.JsonView;
+
+import btp.model.Views;
+
 @Entity
 public class Utilisateur {
 	@Id
 	@GeneratedValue
+	@JsonView(Views.ViewCommon.class)
 	private Long id;
 	@Column(unique=true)
+	@JsonView(Views.ViewCommon.class)
 	private String identifiant;
 	private String motDePasse;
 	
 	@OneToOne (mappedBy = "utilisateur")
+	@JsonView(Views.ViewUtilisateur.class)
 	private Societe societe;
 
 	// Constructeur

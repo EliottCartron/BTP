@@ -8,16 +8,23 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 
+import com.fasterxml.jackson.annotation.JsonView;
+
 @Entity
 public class Reunion {
 	@Id
 	@GeneratedValue
+	@JsonView(Views.ViewCommon.class)
 	private Long id;
+	@JsonView(Views.ViewCommon.class)
 	private String sujet;
+	@JsonView(Views.ViewCommon.class)
 	private Integer numeroCompteRendu;
+	@JsonView(Views.ViewCommon.class)
 	private Date dtReunion;
 	@ManyToOne
 	@JoinColumn(name= "projet_id")
+	@JsonView(Views.ViewReunion.class)
 	private Projet projet;
 	
 	public Reunion() {

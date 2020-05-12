@@ -16,35 +16,48 @@ import javax.persistence.OneToOne;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 
+import com.fasterxml.jackson.annotation.JsonView;
+
 @Entity
 public class Offre {
 	@Id
 	@GeneratedValue
+	@JsonView(Views.ViewCommon.class)
 	private Long id;
+	@JsonView(Views.ViewCommon.class)
 	private Float prix;
+	@JsonView(Views.ViewCommon.class)
 	private int numeroDevis;
 	@Temporal(TemporalType.DATE)
+	@JsonView(Views.ViewCommon.class)
 	private Date dtDebut;
 	@Temporal(TemporalType.DATE)
+	@JsonView(Views.ViewCommon.class)
 	private Date dtFin;
 	
 	@Enumerated(EnumType.STRING)
+	@JsonView(Views.ViewCommon.class)
 	private Etat etat;
 
 	@ManyToOne
+	@JsonView(Views.ViewOffre.class)
 	private MaitreOuvrage maitreOuvrage;
 
 	@ManyToOne
+	@JsonView(Views.ViewOffre.class)
 	private MaitreOeuvre maitreOeuvre;
 
 	@ManyToOne
+	@JsonView(Views.ViewOffre.class)
 	private AppelOffre appelOffre;
 
 
 	@OneToMany(mappedBy = "offre")
+	@JsonView(Views.ViewOffre.class)
 	private List<Prestation> prestations = new ArrayList<Prestation>();
 	
 	@OneToOne (mappedBy = "offre", fetch = FetchType.EAGER)
+	@JsonView(Views.ViewOffre.class)
 	private Projet projet;
 
 	// Constructeurs
