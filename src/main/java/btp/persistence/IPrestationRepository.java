@@ -11,7 +11,6 @@ import btp.model.PhasePresta;
 import btp.model.Prestation;
 
 public interface IPrestationRepository extends JpaRepository<Prestation, Long>{
-
 	
 	//Prestation en cours par projet
 	@Query("select p from Prestation p where p.offre.appelOffre.nom = :nom AND p.dtDebut >= CURRENT_DATE  AND p.dtFin <= CURRENT_DATE")

@@ -14,7 +14,7 @@
 
 	<!-- Scanner le package où se situe les Controller -->
 	<context:component-scan
-		base-package="BTP.web" />
+		base-package="btp.web" />
 	
 
 </beans>
