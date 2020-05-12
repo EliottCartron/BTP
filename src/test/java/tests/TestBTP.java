@@ -3,7 +3,9 @@ package tests;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 
+
 import org.springframework.context.support.ClassPathXmlApplicationContext;
+
 
 import btp.model.Action;
 import btp.model.AppelOffre;
@@ -36,6 +38,9 @@ import btp.persistence.IProjetRepository;
 import btp.persistence.IReunionRepository;
 import btp.persistence.ISalarieRepository;
 import btp.persistence.IUtilisateurRepository;
+
+import org.springframework.context.support.ClassPathXmlApplicationContext;
+
 
 public class TestBTP {
 
@@ -139,12 +144,22 @@ public class TestBTP {
 		supp1.setProjet(projet1);
 
 		supp1 = prestationSupplementaireDao.save(supp1);
-
+		
+	
 		reu1.setProjet(projet1);
 
 		reu1 = reunionDao.save(reu1);
 		
+
 		context.close();
+
+		projet1.setOffre(offre1);
+		System.out.println(projet1.getOffre().getAppelOffre().getBudget());
+		
+		context.close();
+		
+		
+
 
 	}
 

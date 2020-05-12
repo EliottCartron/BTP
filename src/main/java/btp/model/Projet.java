@@ -5,6 +5,7 @@ import java.util.Date;
 import java.util.List;
 
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
@@ -163,10 +164,13 @@ public class Projet {
 		this.actions = actions;
 	}
 	
+<<<<<<< Updated upstream
 	public void addActions(Action action) {
 		this.actions.add(action);
 	}
 	
+=======
+>>>>>>> Stashed changes
 	
 
 }
