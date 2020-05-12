@@ -30,6 +30,7 @@ public class PrestationSupplementaire {
 	private Date dtDebut ;
 	@Temporal(TemporalType.DATE)
 	private Date dtFin;
+	private PhasePresta phasePresta;
 	@OneToOne 
 	@JoinColumn(name = "prestation_id")
 	private Prestation prestation;
@@ -58,13 +59,14 @@ public class PrestationSupplementaire {
 		super();
 	}
 	
-	public PrestationSupplementaire(Categorie categorie, String nom, Float prix, Date dtDebut, Date dtFin) {
+	public PrestationSupplementaire(Categorie categorie, String nom, Float prix, Date dtDebut, Date dtFin, PhasePresta phasePresta) {
 		super();
 		this.categorie = categorie;
 		this.nom = nom;
 		this.prix = prix;
 		this.dtDebut = dtDebut;
 		this.dtFin = dtFin;
+		this.phasePresta = phasePresta;
 	}
 
 

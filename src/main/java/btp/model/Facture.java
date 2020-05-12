@@ -61,7 +61,7 @@ public class Facture {
 	}
 
 	public Facture(int numeroFacture, Date dtFacturation, Float prixHT, Float remise,
-			Date dtEcheance, Float penaliteRetard) {
+			Date dtEcheance, Float penaliteRetard, Boolean payee) {
 		super();
 		this.numeroFacture = numeroFacture;
 		this.dtFacturation = dtFacturation;
@@ -69,6 +69,7 @@ public class Facture {
 		this.remise = remise;
 		this.dtEcheance = dtEcheance;
 		this.penaliteRetard = penaliteRetard;
+		this.payee = payee;
 	}
 	
 	public Facture(int numeroFacture) {

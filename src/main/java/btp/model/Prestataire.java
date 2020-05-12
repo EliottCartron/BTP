@@ -46,6 +46,10 @@ public class Prestataire extends Societe {
 		super();
 		this.nom = nom;
 	}
+	
+		public Prestataire(String nom, String siret, String telephone, String mail, String numeroDeTva) {
+		super(nom, siret, telephone, mail, numeroDeTva);
+	}
 
 	public List<Action> getActions() {
 		return actions;

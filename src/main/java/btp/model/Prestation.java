@@ -60,7 +60,7 @@ public class Prestation {
 		super();
 	}
 	
-	public Prestation(Categorie categorie, String nom, Float prix, Date dtDebut, Date dtFin, Boolean obsolete) {
+	public Prestation(Categorie categorie, String nom, Float prix, Date dtDebut, Date dtFin, Boolean obsolete, PhasePresta phasePresta) {
 		super();
 		this.categorie = categorie;
 		this.nom = nom;
@@ -68,6 +68,7 @@ public class Prestation {
 		this.dtDebut = dtDebut;
 		this.dtFin = dtFin;
 		this.obsolete = obsolete;
+		this.phasePresta = phasePresta;
 	}
 
 	public Long getId() {

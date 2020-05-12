@@ -7,10 +7,14 @@ import org.springframework.context.support.ClassPathXmlApplicationContext;
 
 import btp.model.Action;
 import btp.model.AppelOffre;
+import btp.model.Categorie;
+import btp.model.Etat;
+import btp.model.Facture;
 import btp.model.MaitreOeuvre;
 import btp.model.MaitreOuvrage;
 import btp.model.Materiel;
 import btp.model.Offre;
+import btp.model.PhasePresta;
 import btp.model.Prestataire;
 import btp.model.Prestation;
 import btp.model.PrestationSupplementaire;
@@ -20,6 +24,7 @@ import btp.model.Unite;
 import btp.model.Utilisateur;
 import btp.persistence.IActionRepository;
 import btp.persistence.IAppelOffreRepository;
+import btp.persistence.IFactureRepository;
 import btp.persistence.IMaitreOeuvreRepository;
 import btp.persistence.IMaitreOuvrageRepository;
 import btp.persistence.IMaterielRepository;
@@ -44,9 +49,9 @@ public class TestBTP {
 		Materiel sable = new Materiel("Sac de Sable", 5f, Unite.unite);
 		Materiel rouleauCompresseur = new Materiel("Rouleau Compresseur", 1f, Unite.unite);
 		Prestation presta1 = new Prestation(Categorie.grosOeuvre, "Fondation", 10000f, sdf.parse("10/04/2020"),
-				sdf.parse("10/05/2020"), false);
+				sdf.parse("10/05/2020"), false, PhasePresta.RefuseEG);
 		PrestationSupplementaire supp1 = new PrestationSupplementaire(Categorie.grosOeuvre, "Applanissement", 2000f,
-				sdf.parse("10/04/2020"), sdf.parse("12/04/2020"));
+				sdf.parse("10/04/2020"), sdf.parse("12/04/2020"), PhasePresta.enConsult);
 
 		IAppelOffreRepository appelOffreDao = context.getBean(IAppelOffreRepository.class);
 		IMaitreOeuvreRepository maitreOeuvreDao = context.getBean(IMaitreOeuvreRepository.class);
@@ -70,9 +75,9 @@ public class TestBTP {
 		presta1 = prestationDao.save(presta1);
 		supp1 = prestationSupplementaireDao.save(supp1);
 
-		AppelOffre appelOffre1 = new AppelOffre("maison", 33000F, sdf.parse("07/04/2021"), sdf.parse("07/04/2022"),
+		AppelOffre appelOffre1 = new AppelOffre("maison", "construction d'une maison", 33000F, sdf.parse("07/04/2021"), sdf.parse("07/04/2022"),
 				sdf.parse("15/12/2021"), false, null);
-		AppelOffre appelOffre2 = new AppelOffre("maison", 33000F, sdf.parse("07/04/2021"), sdf.parse("07/04/2022"),
+		AppelOffre appelOffre2 = new AppelOffre("immeuble","construction d'un immeuble de 5 étages", 33000F, sdf.parse("07/04/2021"), sdf.parse("07/04/2022"),
 				sdf.parse("15/12/2021"), true, 45000F);
 		appelOffre1 = appelOffreDao.save(appelOffre1);
 		appelOffre2 = appelOffreDao.save(appelOffre2);

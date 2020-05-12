@@ -45,9 +45,10 @@ public class AppelOffre {
 		super();
 	}
 
-	public AppelOffre(String objectif, Float budget, Date dtDebut, Date dtFin, Date dtLimite, Boolean bpu,
+	public AppelOffre(String nom, String objectif, Float budget, Date dtDebut, Date dtFin, Date dtLimite, Boolean bpu,
 			Float prixBpu) {
 		super();
+		this.nom = nom;
 		this.objectif = objectif;
 		this.budget = budget;
 		this.dtDebut = dtDebut;

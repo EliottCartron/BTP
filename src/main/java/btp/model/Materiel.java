@@ -94,4 +94,15 @@ public class Materiel {
 		this.prestations.add(prestation);
 	}
 
+
+	public Prestataire getPrestataire() {
+		return prestataire;
+	}
+
+
+	public void setPrestataire(Prestataire prestataire) {
+		this.prestataire = prestataire;
+	}
+
+	
 }
