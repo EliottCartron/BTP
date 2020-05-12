@@ -13,18 +13,22 @@ import javax.persistence.ManyToOne;
 import javax.persistence.UniqueConstraint;
 import javax.persistence.Version;
 
+import com.fasterxml.jackson.annotation.JsonView;
+
 @Entity
 public class Salarie {
 	@Id
 	@GeneratedValue
+	@JsonView(Views.ViewCommon.class)
 	private Long id;
 	@Version
+	@JsonView(Views.ViewCommon.class)
 	private int version;
-	
+	@JsonView(Views.ViewCommon.class)
 	private String nom;
-	
+	@JsonView(Views.ViewCommon.class)
 	private String prenom;
-	
+	@JsonView(Views.ViewCommon.class)
 	private String metier;
 	
 	@ManyToMany
@@ -32,10 +36,12 @@ public class Salarie {
 			uniqueConstraints = @UniqueConstraint(columnNames = { "salarie_id", "action_id" }),
 			joinColumns = @JoinColumn(name="salarie_id", referencedColumnName = "id"), 
 			inverseJoinColumns = @JoinColumn(name="action_id", referencedColumnName = "id"))
+	@JsonView(Views.ViewSalarie.class)
 	private List<Action> actions = new ArrayList<Action>();
 	
 	@ManyToOne
 	@JoinColumn(name = "prestataire_id")
+	@JsonView(Views.ViewSalarie.class)
 	private Prestataire prestataire;
 	
 	@ManyToMany
@@ -43,6 +49,7 @@ public class Salarie {
 			uniqueConstraints = @UniqueConstraint(columnNames = { "salarie_id", "prestation_id" }),
 			joinColumns = @JoinColumn(name="salarie_id", referencedColumnName = "id"), 
 			inverseJoinColumns = @JoinColumn(name="prestation_id", referencedColumnName = "id"))
+	@JsonView(Views.ViewSalarie.class)
 	private List<Prestation> prestations = new ArrayList<Prestation>();
 	
 	@ManyToMany
@@ -50,6 +57,7 @@ public class Salarie {
 			uniqueConstraints = @UniqueConstraint(columnNames = { "salarie_id", "prestationsup_id" }),
 			joinColumns = @JoinColumn(name="salarie_id", referencedColumnName = "id"), 
 			inverseJoinColumns = @JoinColumn(name="prestationsup_id", referencedColumnName = "id"))
+	@JsonView(Views.ViewSalarie.class)
 	private List<PrestationSupplementaire> prestationSupplementaires = new ArrayList<PrestationSupplementaire>();
 
 	

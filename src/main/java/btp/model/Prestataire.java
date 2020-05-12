@@ -7,27 +7,34 @@ import javax.persistence.DiscriminatorValue;
 import javax.persistence.Entity;
 import javax.persistence.OneToMany;
 
+import com.fasterxml.jackson.annotation.JsonView;
+
 @Entity
 @DiscriminatorValue("Prestataire")
 public class Prestataire extends Societe {
-	
 
 	@OneToMany(mappedBy = "prestataire")
+	@JsonView(Views.ViewPrestataire.class)
 	private List<Action> actions = new ArrayList<Action>();
 
 	@OneToMany(mappedBy = "prestataire")
+	@JsonView(Views.ViewPrestataire.class)
 	private List<Facture> factures = new ArrayList<Facture>();
 
 	@OneToMany(mappedBy = "prestataire")
+	@JsonView(Views.ViewPrestataire.class)
 	private List<Salarie> salarie = new ArrayList<Salarie>();
 
 	@OneToMany(mappedBy = "prestataire")
+	@JsonView(Views.ViewPrestataire.class)
 	private List<PrestationSupplementaire> prestationSupplementaire = new ArrayList<PrestationSupplementaire>();
 
 	@OneToMany(mappedBy = "prestataire")
+	@JsonView(Views.ViewPrestataire.class)
 	private List<Materiel> materiel = new ArrayList<Materiel>();
 
 	@OneToMany(mappedBy = "prestataire")
+	@JsonView(Views.ViewPrestataire.class)
 	private List<Prestation> prestation = new ArrayList<Prestation>();
 
 	public Prestataire() {

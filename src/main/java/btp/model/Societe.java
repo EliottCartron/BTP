@@ -11,26 +11,36 @@ import javax.persistence.Inheritance;
 import javax.persistence.InheritanceType;
 import javax.persistence.OneToOne;
 
+import com.fasterxml.jackson.annotation.JsonView;
+
 @Entity
 @Inheritance(strategy = InheritanceType.SINGLE_TABLE)
 @DiscriminatorColumn(name = "type", discriminatorType = DiscriminatorType.STRING, length = 15)
 public class Societe {
 	@Id
 	@GeneratedValue
+	@JsonView(Views.ViewCommon.class)
 	private Long id;
+	@JsonView(Views.ViewCommon.class)
 	private String nom;
 	@Column(unique=true)
+	@JsonView(Views.ViewCommon.class)
 	private String siret;
+	@JsonView(Views.ViewCommon.class)
 	private String telephone;
 	@Column(unique=true)
+	@JsonView(Views.ViewCommon.class)
 	private String mail;
 	@Column(unique=true)
+	@JsonView(Views.ViewCommon.class)
 	private String numeroDeTva;
 	
-	@OneToOne 
+	@OneToOne
+	@JsonView(Views.ViewSociete.class)
 	private Utilisateur utilisateur;
 	
 	@Embedded
+	@JsonView(Views.ViewSociete.class)
 	private Adresse adresse;
 
 // Constructeur

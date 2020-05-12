@@ -17,43 +17,59 @@ import javax.persistence.OneToOne;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 
+import com.fasterxml.jackson.annotation.JsonView;
+
 @Entity
 public class Prestation {
 	@Id
 	@GeneratedValue
+	@JsonView(Views.ViewCommon.class)
 	private Long id;
 	@Enumerated(EnumType.STRING)
+	@JsonView(Views.ViewCommon.class)
 	private Categorie categorie;
+	@JsonView(Views.ViewCommon.class)
 	private String nom;
+	@JsonView(Views.ViewCommon.class)
 	private Float prix;
 	@Temporal(TemporalType.DATE)
+	@JsonView(Views.ViewCommon.class)
 	private Date dtDebut ;
 	@Temporal(TemporalType.DATE)
+	@JsonView(Views.ViewCommon.class)
 	private Date dtFin;
 	private PhasePresta phasePresta;
+	@JsonView(Views.ViewCommon.class)
 	private Boolean obsolete;
 	@OneToOne (mappedBy = "prestation")
+	@JsonView(Views.ViewPrestation.class)
 	private PrestationSupplementaire prestationSupplementaire;
 	@ManyToMany
 	@JoinTable(name ="matos_presta",
 	joinColumns = @JoinColumn (name = "prestation_id ", referencedColumnName = "id"),
 	inverseJoinColumns = @JoinColumn (name = "materiel_id ", referencedColumnName = "id"))
+	@JsonView(Views.ViewPrestation.class)
 	private List<Materiel> materiels = new ArrayList<Materiel>();
 	@ManyToOne
 	@JoinColumn(name = "projet_id")
+	@JsonView(Views.ViewPrestation.class)
 	private Projet projet;
 	@ManyToOne
 	@JoinColumn(name = "offre_id")
+	@JsonView(Views.ViewPrestation.class)
 	private Offre offre;
 	@ManyToOne
 	@JoinColumn(name = "prestataire_id")
+	@JsonView(Views.ViewPrestation.class)
 	private Prestataire prestataire;
 	@ManyToMany
 	@JoinTable(name ="salarie_presta", 
 	joinColumns = @JoinColumn (name = "salarie_id ", referencedColumnName = "id"), 
 	inverseJoinColumns = @JoinColumn (name = "prestation_id ", referencedColumnName = "id")) 
+	@JsonView(Views.ViewPrestation.class)
 	private List<Salarie> salaries = new ArrayList<Salarie>();
 	@OneToOne(mappedBy = "prestation")
+	@JsonView(Views.ViewPrestation.class)
 	private Facture facture;
 	
 	public Prestation() {
