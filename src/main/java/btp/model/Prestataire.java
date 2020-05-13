@@ -12,6 +12,7 @@ import com.fasterxml.jackson.annotation.JsonView;
 @Entity
 @DiscriminatorValue("Prestataire")
 public class Prestataire extends Societe {
+	
 
 	@OneToMany(mappedBy = "prestataire")
 	@JsonView(Views.ViewPrestataire.class)

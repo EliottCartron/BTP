@@ -122,6 +122,14 @@ public class PrestationSupplementaire {
 		this.dtFin = dtFin;
 	}
 
+	public PhasePresta getPhasePresta() {
+		return phasePresta;
+	}
+
+	public void setPhasePresta(PhasePresta phasePresta) {
+		this.phasePresta = phasePresta;
+	}
+
 	public Prestation getPrestation() {
 		return prestation;
 	}
