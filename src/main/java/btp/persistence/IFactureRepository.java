@@ -10,8 +10,9 @@ import btp.model.Facture;
 
 public interface IFactureRepository extends JpaRepository<Facture, Long>{
 
-	//Affichage des factures en fonction du projet et si payee ou non
-//	@Query("select f from Facture f where f.projet.offre.appelOffre.nom = :nom and f.payee = :payee")
-//	List<Facture> findAllByProjetAndPayee(@Param("nom") String nom, @Param("payee") Boolean payee);
+//	Affichage des factures en fonction du projet et si payee ou non
+	@Query("select f from Facture f where f.projet.id = :id and f.payee = :payee and f.prestataire.nom = :nomPresta")
+	List<Facture> findAllByProjetAndPayee(@Param("id") Long id, @Param("payee") Boolean payee, @Param("nomPresta") String nom);
+	
 	
 }
