@@ -13,21 +13,32 @@ import javax.persistence.OneToMany;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 
+import com.fasterxml.jackson.annotation.JsonView;
+
 @Entity
 public class AppelOffre {
 	@Id
 	@GeneratedValue
+	@JsonView(Views.ViewCommon.class)
 	private Long id;
+	@JsonView(Views.ViewCommon.class)
 	private String nom;
+	@JsonView(Views.ViewCommon.class)
 	private String objectif;
+	@JsonView(Views.ViewCommon.class)
 	private Float budget;
 	@Temporal(TemporalType.DATE)
+	@JsonView(Views.ViewCommon.class)
 	private Date dtDebut;
 	@Temporal(TemporalType.DATE)
+	@JsonView(Views.ViewCommon.class)
 	private Date dtFin;
 	@Temporal(TemporalType.DATE)
+	@JsonView(Views.ViewCommon.class)
 	private Date dtLimite;
+	@JsonView(Views.ViewCommon.class)
 	private Boolean bpu;
+	@JsonView(Views.ViewCommon.class)
 	private Float prixBpu;
 
 	@Embedded

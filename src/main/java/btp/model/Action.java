@@ -15,34 +15,46 @@ import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 import javax.persistence.Version;
 
+import com.fasterxml.jackson.annotation.JsonView;
+
 @Entity
 public class Action {
 	@Id
 	@GeneratedValue
+	@JsonView(Views.ViewCommon.class)
 	private Long id;
 	@Version
+	@JsonView(Views.ViewCommon.class)
 	private int version;
 	@Column
+	@JsonView(Views.ViewCommon.class)
 	private String nomAction;
 	@Temporal(TemporalType.DATE)
 	@Column
+	@JsonView(Views.ViewCommon.class)
 	private Date dtCreation;
 	@Temporal(TemporalType.DATE)
 	@Column
+	@JsonView(Views.ViewCommon.class)
 	private Date dtLimite;
 	@Column
+	@JsonView(Views.ViewCommon.class)
 	private String description;
 	@Column
+	@JsonView(Views.ViewCommon.class)
 	private Boolean effectuee;
 	@ManyToMany(mappedBy = "actions")
+	@JsonView(Views.ViewAction.class)
 	private List<Salarie> salaries = new ArrayList<Salarie>();
 
 	@ManyToOne
 	@JoinColumn(name = "prestataire_id")
+	@JsonView(Views.ViewAction.class)
 	private Prestataire prestataire;
 
 	@ManyToOne
 	@JoinColumn(name = "projet_id")
+	@JsonView(Views.ViewAction.class)
 	private Projet projet;
 
 	
