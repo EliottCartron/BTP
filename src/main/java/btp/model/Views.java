@@ -28,8 +28,10 @@ public class Views {
 	
 	public static class ViewSociete extends ViewCommon {}
 	
-	public static class ViewMaitreOeuvre extends ViewSociete {}
+	public static class ViewMaitreOuvrage extends ViewCommon {}
 	
-	public static class ViewMaitreOuvrage extends ViewSociete {}
+	public static class ViewMateriel extends ViewCommon {}
+	
+	public static class ViewMaitreOeuvre extends ViewCommon {}
 	
 }
