@@ -1,13 +1,11 @@
-package tests;
+package btp;
 
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 
-import org.junit.Test;
-import org.junit.runner.RunWith;
+import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.test.context.ContextConfiguration;
-import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
+import org.springframework.boot.test.context.SpringBootTest;
 
 import btp.model.Action;
 import btp.model.Adresse;
@@ -43,10 +41,9 @@ import btp.persistence.IReunionRepository;
 import btp.persistence.ISalarieRepository;
 import btp.persistence.IUtilisateurRepository;
 
-@RunWith(SpringJUnit4ClassRunner.class)
-@ContextConfiguration(locations = "/application-context.xml")
-//@ContextConfiguration(classes = ApplicationConfig.class)
-public class TestBTPJunitSpring {
+@SpringBootTest
+class BtpApplicationTests {
+
 	SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy");
 
 	@Autowired

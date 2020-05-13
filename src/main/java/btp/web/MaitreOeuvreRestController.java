@@ -27,13 +27,13 @@ public class MaitreOeuvreRestController {
 	private IMaitreOeuvreRepository maitreOeuvreRepo;
 	
 	@GetMapping("")
-	@JsonView(Views.ViewFacture.class)
+	@JsonView(Views.ViewMaitreOeuvre.class)
 	public List<MaitreOeuvre> findAll() {
 		return maitreOeuvreRepo.findAll();
 	}
 	
 	@GetMapping("/{id}")
-	@JsonView(Views.ViewFacture.class)
+	@JsonView(Views.ViewMaitreOeuvre.class)
 	public MaitreOeuvre find(@PathVariable Long id) {
 
 		Optional<MaitreOeuvre> optMaitreOeuvre = maitreOeuvreRepo.findById(id);
@@ -46,6 +46,7 @@ public class MaitreOeuvreRestController {
 	}
 	
 	@PostMapping("")
+	@JsonView(Views.ViewMaitreOeuvre.class)
 	public MaitreOeuvre create(@RequestBody MaitreOeuvre maitreOeuvre) {
 		maitreOeuvre = maitreOeuvreRepo.save(maitreOeuvre);
 
@@ -53,6 +54,7 @@ public class MaitreOeuvreRestController {
 	}
 
 	@PutMapping("/{id}")
+	@JsonView(Views.ViewMaitreOeuvre.class)
 	public MaitreOeuvre update(@RequestBody MaitreOeuvre maitreOeuvre, @PathVariable Long id) {
 		if (!maitreOeuvreRepo.existsById(id)) {
 			throw new ResponseStatusException(HttpStatus.NOT_FOUND, "Unable to find resource");
