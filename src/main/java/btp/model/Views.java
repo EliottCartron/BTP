@@ -22,10 +22,14 @@ public class Views {
 	
 	public static class ViewPrestation extends ViewCommon {}
 	
-	public static class ViewPrestataire extends ViewCommon {}
+	public static class ViewPrestataire extends ViewSociete {}
 	
 	public static class ViewOffre extends ViewCommon {}
 	
 	public static class ViewSociete extends ViewCommon {}
+	
+	public static class ViewMaitreOeuvre extends ViewSociete {}
+	
+	public static class ViewMaitreOuvrage extends ViewSociete {}
 	
 }
