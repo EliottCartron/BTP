@@ -69,8 +69,4 @@ public class ActionRestController {
 	public void delete (@PathVariable Long id) {
 		actionRepo.deleteById(id);
 	}
-	
-	
-	
-
 }

@@ -109,7 +109,6 @@
 		padding: 15em 0em 7em 0em;
 		background: #111111 url(C:/java/workspace/BTP/src/main/resources/static/images/header-bg.jpg) no-repeat center;
 		background-size: cover;
-		position: relative;
 		padding: 15em 0em;
 	}
 	
@@ -132,7 +131,7 @@
 		font-stretch: expanded;
 		color : rgb(255,255,255);
 		font-family: arial; 
-		
+		text-shadow: black 0.1em 0.1em 0.2em;
 	
 	}
 	
@@ -171,5 +170,32 @@
 	{
 		color: rgba(255,255,255,1);
 	}
+	
 
 
+/*********************************************************************************/
+/* Autre                                                                       */
+/*********************************************************************************/
+		.headerLayout
+	{
+		height : 170px;
+		background: url(C:/java/workspace/BTP/src/main/resources/static/images/header-bg2.jpg) no-repeat center;
+		background-size: cover;
+	}
+	
+	.policeTitle
+	{
+		font-family: arial;
+		text-shadow: black 0.1em 0.1em 0.2em;
+/* 		color: #292b2c; */
+/* 		text-shadow: white 0.1em 0.1em 0.2em; */
+		font-size: 40pt;
+	}
+	
+	.rowMenu
+	{
+		margin-right: 0px !important;
+		margin-left: 0px !important;
+		background-color: black; 
+		height: 170px;
+	}
