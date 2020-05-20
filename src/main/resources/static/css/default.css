@@ -14,7 +14,6 @@
 		color: #FFF;
 	}
 	
-	
 	h1, h2, h3
 	{
 		margin: 0;
@@ -35,10 +34,6 @@
 	p
 	{
 		line-height: 180%;
-	}
-	
-	strong
-	{
 	}
 	
 	a
@@ -171,31 +166,3 @@
 		color: rgba(255,255,255,1);
 	}
 	
-
-
-/*********************************************************************************/
-/* Autre                                                                       */
-/*********************************************************************************/
-		.headerLayout
-	{
-		height : 170px;
-		background: url(C:/java/workspace/BTP/src/main/resources/static/images/header-bg2.jpg) no-repeat center;
-		background-size: cover;
-	}
-	
-	.policeTitle
-	{
-		font-family: arial;
-		text-shadow: black 0.1em 0.1em 0.2em;
-/* 		color: #292b2c; */
-/* 		text-shadow: white 0.1em 0.1em 0.2em; */
-		font-size: 40pt;
-	}
-	
-	.rowMenu
-	{
-		margin-right: 0px !important;
-		margin-left: 0px !important;
-		background-color: black; 
-		height: 170px;
-	}
