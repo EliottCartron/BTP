@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+	layout:decorator="layout2.html">
+<head>
+<meta charset="UTF-8">
+<title>Connexion</title>
+<link
+	href="C:\java\workspace\BTP\src\main\resources\static\css\default.css"
+	rel="stylesheet" type="text/css" media="all" />
+<link rel="stylesheet"
+	href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+<link rel="stylesheet"
+	href="https://pro.fontawesome.com/releases/v5.13.0/css/all.css" />
+<script
+	src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script
+	src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"></script>
+<script>
+	function w3_open() {
+		document.getElementById("main").style.marginLeft = "20%";
+		document.getElementById("mySidebar").style.width = "20%";
+		document.getElementById("mySidebar").style.display = "block";
+		document.getElementById("openNav").style.display = 'none';
+		document.getElementById("titre").style.marginLeft = "5%";
+	}
+	function w3_close() {
+		document.getElementById("main").style.marginLeft = "0%";
+		document.getElementById("mySidebar").style.display = "none";
+		document.getElementById("openNav").style.display = "inline-block";
+		document.getElementById("titre").style.marginLeft = "0%";
+	}
+</script>
+</head>
+<body>
+	<div
+		class="w3-sidebar w3-bar-block w3-card w3-animate-left bg-dark text-white"
+		style="display: none" id="mySidebar">
+
+		<div class="rowMenu row border-bottom border-warning">
+			<p class="m-auto" style="font-size: 40px">MENU</p>
+			<button class="btn w3-large m-5 text-warning" onclick="w3_close()">&times;</button>
+		</div>
+
+
+		<a href="#" class="w3-bar-item btn btn-dark p-5"
+			style="text-decoration: none"> <i
+			class="fas fa-angle-double-right mr-4 text-warning"></i> Appels
+			d'offre
+		</a> <a href="#" class="w3-bar-item btn btn-dark p-5"
+			style="text-decoration: none"> <i
+			class="fas fa-angle-double-right mr-4 text-warning"></i> Projets
+		</a> <a href="#" class="w3-bar-item btn btn-dark p-5"
+			style="text-decoration: none"> <i
+			class="fas fa-angle-double-right mr-4 text-warning"></i> Actions
+		</a> <a href="#" class="w3-bar-item btn btn-dark p-5"
+			style="text-decoration: none"> <i
+			class="fas fa-angle-double-right mr-4 text-warning"></i> Réunions
+		</a> <a href="#" class="w3-bar-item btn btn-dark p-5"
+			style="text-decoration: none"> <i
+			class="fas fa-angle-double-right mr-4 text-warning"></i> Planning
+		</a>
+	</div>
+
+	<div id="main">
+		<div
+			class="bg-dark text-white headerLayout row border-bottom border-dark">
+			<button id="openNav"
+				class="btn btn-dark px-3 py-2 w3-xlarge my-auto ml-5 mr-4 buttonMenu btn border btn"
+				onclick="w3_open()">&#9776;</button>
+			<div id="titre" class="my-auto">
+				<h1 class="policeTitle">BTP MANAGEMENT</h1>
+			</div>
+		</div>
+	</div>
+	
+	<div class="container">	
+		<!-- Button to Open the Modal -->
+		<button type="button" class="btn btn-warning" data-toggle="modal"
+			data-target="#connexion">Connexion</button>
+
+		<div class="row">
+			<div class="col-md-12 d-flex flex-column justify-content-center">
+				<div class="row">
+					<div class="col-lg-6 col-md-8 mx-auto">
+						<div id="connexion" class="modal fade">
+							<div class="modal-dialog">
+								<div class="modal-content">
+									<div class="card-header bg-dark text-white">
+										<h3>Connexion</h3>
+									</div>
+									<div class="card-body">
+										<div class="form-group">
+											<label for="identifiant">Identifiant</label> <input
+												type="text" class="form-control" id="identifiant"
+												name="identifiant" style="border-radius: 25px">
+										</div>
+										<div class="form-group">
+											<label for="mdp">Mot de Passe</label> <input type="password"
+												class="form-control" id="mdp" name="mdp"
+												style="border-radius: 25px">
+											<button class="input-group-text">
+												<i class="fas fa-eye"></i>
+											</button>
+										</div>
+										<div class="col-md-12 text-center ">
+											<button type="submit" class=" btn btn-block btn-dark tx-tfm "
+												style="border-radius: 50px">Connexion</button>
+										</div>
+										<br />
+										<div class="col-md-12 text-center ">
+											<button type="submit"
+												class=" btn btn-block btn-warning tx-tfm "
+												style="border-radius: 50px">Créer un compte</button>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</body>
+</html>
